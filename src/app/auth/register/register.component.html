@@ -1,0 +1,53 @@
+<div>
+  <h2>REGÍSTRATE</h2>
+  <form class="register-form" [formGroup]="registerForm">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu email"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>El email es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input
+        type="name"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu nombre"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Por favor ingresa un nombre</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>El nombre es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa Contraseña"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Por favor ingresa una contraseña</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>La contraseña es <strong>requerida</strong></mat-error>
+      }
+    </mat-form-field>
+  </form>
+</div>

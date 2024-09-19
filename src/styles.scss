@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+// Define la paleta de colores personalizada para el color primario
+$greenmove-primary: mat.define-palette(
+  (
+    50: #e5fff5,
+    100: #b3ffe0,
+    200: #80ffcc,
+    300: #4dffb8,
+    400: #1aff9d,
+    500: #00ffb2,
+    // Color primario personalizado
+    600: #00cc92,
+    700: #009973,
+    800: #006653,
+    900: #003333,
+    contrast: (
+      50: rgba(0, 0, 0, 0.87),
+      100: rgba(0, 0, 0, 0.87),
+      200: rgba(0, 0, 0, 0.87),
+      300: rgba(0, 0, 0, 0.87),
+      400: rgba(0, 0, 0, 0.87),
+      500: rgba(255, 255, 255, 0.87),
+      600: rgba(255, 255, 255, 0.87),
+      700: rgba(255, 255, 255, 0.87),
+      800: rgba(255, 255, 255, 0.87),
+      900: rgba(255, 255, 255, 0.87),
+    ),
+  )
+);
+
+// Crear un tema personalizado utilizando la paleta personalizada
+$greenmove-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $greenmove-primary,
+      accent: mat.define-palette(mat.$pink-palette),
+      warn: mat.define-palette(mat.$red-palette),
+    ),
+  )
+);
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+}
+
+.custom-toolbar-text {
+  color: #000000; /* Cambia el color al que desees */
+}
+// Aplicar el tema personalizado a la aplicación
+@include mat.all-component-themes($greenmove-theme);
