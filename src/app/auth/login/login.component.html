@@ -1,6 +1,6 @@
 <div class="ph-xl pv-xl">
-  <h1 class="text-center">REGÍSTRATE</h1>
-  <form class="container-col-center ph-xl" [formGroup]="registerForm">
+  <h1 class="text-center">Login</h1>
+  <form class="container-col-center ph-xl" [formGroup]="loginForm">
     <mat-form-field class="w-40" appearance="outline">
       <mat-label>Email</mat-label>
       <input
@@ -15,22 +15,6 @@
       <mat-error>Please enter a valid email address</mat-error>
       } @if (emailFormControl.hasError('required')) {
       <mat-error>El email es <strong>requerido</strong></mat-error>
-      }
-    </mat-form-field>
-    <mat-form-field class="w-40" appearance="outline">
-      <mat-label>Nombre</mat-label>
-      <input
-        type="name"
-        matInput
-        [formControl]="emailFormControl"
-        [errorStateMatcher]="matcher"
-        placeholder="Ingresa tu nombre"
-      />
-      @if (emailFormControl.hasError('email') &&
-      !emailFormControl.hasError('required')) {
-      <mat-error>Por favor ingresa un nombre</mat-error>
-      } @if (emailFormControl.hasError('required')) {
-      <mat-error>El nombre es <strong>requerido</strong></mat-error>
       }
     </mat-form-field>
     <mat-form-field class="w-40" appearance="outline">
@@ -50,10 +34,10 @@
       }
     </mat-form-field>
     <div class="container-center mt-lg mb-lg">
-      <span> O Iniciar Sesión aquí</span>
+      <span> ¿Olvidaste tu contraseña?</span>
     </div>
     <div class="container-center">
-      <button mat-flat-button color="primary">Regístrarse</button>
+      <button mat-flat-button color="primary">Ingresar</button>
     </div>
   </form>
 </div>
