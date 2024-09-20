@@ -175,5 +175,14 @@ $xl: 32px;
   @include flex-container(row, center, center);
 }
 
+@mixin grid-container($columns: 3, $gap: $lg, $row-gap: 4px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  row-gap: $row-gap;
+}
+
+.container-grid-3 {
+  @include grid-container(3, 10px, 10px)
+}
 // Aplicar el tema personalizado a la aplicación
 @include mat.all-component-themes($greenmove-theme);

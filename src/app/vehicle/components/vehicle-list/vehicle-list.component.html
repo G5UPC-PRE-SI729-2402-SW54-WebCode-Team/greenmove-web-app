@@ -1,3 +1,5 @@
-@for (vehicle of vehicles; track vehicle.name) {
-<app-vehicle-item [vehicle]="vehicle"></app-vehicle-item>
-}
+<div class="container-grid-3">
+  @for (vehicle of vehicles; track vehicle.name) {
+  <app-vehicle-item [vehicle]="vehicle"></app-vehicle-item>
+  }
+</div>

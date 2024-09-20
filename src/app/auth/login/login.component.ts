@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MyErrorStateMatcher } from '../register/register.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   emailFormControl: FormControl;
   matcher = new MyErrorStateMatcher();
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.emailFormControl = new FormControl('');
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,4 +40,7 @@ export class LoginComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
+  toGoRegister(): void {
+    this.router.navigate(['/register']);
+  }
 }

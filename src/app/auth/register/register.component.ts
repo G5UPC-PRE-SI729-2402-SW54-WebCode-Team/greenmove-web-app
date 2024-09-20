@@ -14,6 +14,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   emailFormControl: FormControl;
   matcher = new MyErrorStateMatcher();
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.emailFormControl = new FormControl('');
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -56,4 +57,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
+  goToLogin() {
+    this.router.navigate(['./login']);
+  }
 }
