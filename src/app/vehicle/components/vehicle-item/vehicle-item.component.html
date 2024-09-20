@@ -1,0 +1,9 @@
+<mat-card color="primary">
+  <mat-card-header color="primary">
+    <mat-card-title>{{ vehicle.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <img mat-card-md-image [src]="vehicle.urlImg" alt="{{ vehicle.title }}" />
+    <p>{{ vehicle.description }}</p>
+  </mat-card-content>
+</mat-card>

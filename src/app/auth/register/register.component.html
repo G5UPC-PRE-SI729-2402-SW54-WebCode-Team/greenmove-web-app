@@ -1,0 +1,59 @@
+<div class="ph-xl pv-xl">
+  <h1 class="text-center">REGÍSTRATE</h1>
+  <form class="container-col-center ph-xl" [formGroup]="registerForm">
+    <mat-form-field class="w-40" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu email"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>El email es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="w-40" appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input
+        type="name"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu nombre"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Por favor ingresa un nombre</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>El nombre es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="w-40" appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa Contraseña"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Por favor ingresa una contraseña</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>La contraseña es <strong>requerida</strong></mat-error>
+      }
+    </mat-form-field>
+    <div class="container-center mt-lg mb-lg" (click)="goToLogin()">
+      <span> O Iniciar Sesión aquí</span>
+    </div>
+    <div class="container-center">
+      <button mat-flat-button color="primary">Regístrarse</button>
+    </div>
+  </form>
+</div>
