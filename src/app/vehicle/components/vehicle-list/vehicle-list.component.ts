@@ -61,5 +61,35 @@ export class VehicleListComponent {
         type: 'Car',
       },
     },
+    {
+      id: '6',
+      name: 'Bicicleta Monark',
+      urlImg: '../../../../assets/imgs/monark.jpg',
+      type: {
+        icon: 'bicicle-icon',
+        id: '1',
+        type: 'Car',
+      },
+    },
+    {
+      id: '6',
+      name: 'Bicicleta Monark',
+      urlImg: '../../../../assets/imgs/monark.jpg',
+      type: {
+        icon: 'bicicle-icon',
+        id: '1',
+        type: 'Car',
+      },
+    },
+    {
+      id: '6',
+      name: 'Bicicleta Monark',
+      urlImg: '../../../../assets/imgs/monark.jpg',
+      type: {
+        icon: 'bicicle-icon',
+        id: '1',
+        type: 'Car',
+      },
+    },
   ];
 }

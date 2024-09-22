@@ -1,4 +1,4 @@
-type TypeVehicle = 'Car' | 'Scooter';
+type TypeVehicle = 'Car' | 'Scooter' | 'Motorcycle';
 
 export interface ITypeVehicle {
   id: string;
