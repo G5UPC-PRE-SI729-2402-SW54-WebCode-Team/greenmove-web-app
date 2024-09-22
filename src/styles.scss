@@ -1,1 +1,227 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+// Define la paleta de colores personalizada para el color primario
+
+$greenmove-primary: mat.define-palette(
+  (
+    50: #e5fff5,
+    100: #b3ffe0,
+    200: #80ffcc,
+    300: #4dffb8,
+    400: #1aff9d,
+    500: #00ffb2,
+    // Color primario personalizado
+    600: #00cc92,
+    700: #009973,
+    800: #006653,
+    900: #003333,
+    contrast: (
+      50: rgba(0, 0, 0, 0.87),
+      100: rgba(0, 0, 0, 0.87),
+      200: rgba(0, 0, 0, 0.87),
+      300: rgba(0, 0, 0, 0.87),
+      400: rgba(0, 0, 0, 0.87),
+      500: rgba(255, 255, 255, 0.87),
+      600: rgba(255, 255, 255, 0.87),
+      700: rgba(255, 255, 255, 0.87),
+      800: rgba(255, 255, 255, 0.87),
+      900: rgba(255, 255, 255, 0.87),
+    ),
+  )
+);
+
+// Crear un tema personalizado utilizando la paleta personalizada
+$greenmove-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $greenmove-primary,
+      accent: mat.define-palette(mat.$pink-palette),
+      warn: mat.define-palette(mat.$red-palette),
+    ),
+  )
+);
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+}
+
+.custom-toolbar-text {
+  color: #000000; /* Cambia el color al que desees */
+}
+
+$xs: 4px;
+$sm: 4px;
+$md: 16px;
+$lg: 24px;
+$xl: 32px;
+
+.mt-sm {
+  margin-top: $sm;
+}
+.mt-md {
+  margin-top: $md;
+}
+.mt-lg {
+  margin-top: $lg;
+}
+.mt-xl {
+  margin-top: $xl;
+}
+
+.mb-sm {
+  margin-bottom: $sm;
+}
+.mb-md {
+  margin-bottom: $md;
+}
+.mb-lg {
+  margin-bottom: $lg;
+}
+.mb-xl {
+  margin-bottom: $xl;
+}
+
+.pb-sm {
+  padding-bottom: $sm;
+}
+.pb-md {
+  padding-bottom: $md;
+}
+.pb-lg {
+  padding-bottom: $lg;
+}
+.pb-xl {
+  padding-bottom: $xl;
+}
+
+.pt-sm {
+  padding-top: $sm;
+}
+.pt-md {
+  padding-top: $md;
+}
+.pt-lg {
+  padding-top: $lg;
+}
+.pt-xl {
+  padding-top: $xl;
+}
+
+.pv-sm {
+  padding-top: $sm;
+  padding-bottom: $sm;
+}
+
+.pv-md {
+  padding-top: $md;
+  padding-bottom: $md;
+}
+
+.pv-lg {
+  padding-top: $lg;
+  padding-bottom: $lg;
+}
+
+.pv-xl {
+  padding-top: $xl;
+  padding-bottom: $xl;
+}
+
+.ph-sm {
+  padding-left: $sm;
+  padding-right: $sm;
+}
+
+.ph-md {
+  padding-left: $md;
+  padding-right: $md;
+}
+
+.ph-lg {
+  padding-left: $lg;
+  padding-right: $lg;
+}
+
+.ph-xl {
+  padding-left: $xl;
+  padding-right: $xl;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-xs {
+  padding: $sm;
+}
+
+.p-md {
+  padding: $md;
+}
+
+.p-lg {
+  padding: $lg;
+}
+
+.p-xl {
+  padding: $xl;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.container-col-center {
+  @include flex-container(column, center, center);
+}
+
+.container-center {
+  @include flex-container(row, center, center);
+}
+
+@mixin grid-container($columns: 3, $gap: $lg, $row-gap: 4px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  row-gap: $row-gap;
+  gap: $gap;
+}
+
+.container-grid-list {
+  @include grid-container(3, $lg, $md);
+  @media (max-width: 768px) {
+    @include grid-container(2, $lg, $md);
+  }
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+
+// Aplicar el tema personalizado a la aplicación
+@include mat.all-component-themes($greenmove-theme);
