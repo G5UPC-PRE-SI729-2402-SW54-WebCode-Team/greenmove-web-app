@@ -156,8 +156,28 @@ $xl: 32px;
   text-align: center;
 }
 
+.p-xs {
+  padding: $sm;
+}
+
+.p-md {
+  padding: $md;
+}
+
+.p-lg {
+  padding: $lg;
+}
+
+.p-xl {
+  padding: $xl;
+}
+
 .w-40 {
   width: 40%;
+}
+
+.grow-1 {
+  flex-grow: 1;
 }
 
 @mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
@@ -179,10 +199,29 @@ $xl: 32px;
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
   row-gap: $row-gap;
+  gap: $gap;
 }
 
-.container-grid-3 {
-  @include grid-container(3, 10px, 10px)
+.container-grid-list {
+  @include grid-container(3, $lg, $md);
+  @media (max-width: 768px) {
+    @include grid-container(2, $lg, $md);
+  }
 }
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+
 // Aplicar el tema personalizado a la aplicación
 @include mat.all-component-themes($greenmove-theme);

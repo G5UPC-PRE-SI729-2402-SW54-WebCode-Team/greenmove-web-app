@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,5 +25,9 @@ export class AppComponent {
   constructor(private router: Router) {}
   goToPayment = () => {
     this.router.navigate(['/payment']);
+  };
+
+  goToProfile = () => {
+    this.router.navigate(['/profile']);
   };
 }
