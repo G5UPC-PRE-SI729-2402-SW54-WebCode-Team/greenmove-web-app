@@ -4,18 +4,18 @@
   </mat-card-header>
   <mat-card-content>
     <img mat-card-md-image [src]="vehicle.urlImg" alt="{{ vehicle.title }}" />
-    <p>{{ vehicle.description }}</p>
     <div>
-      <span> Velocidad :</span>
-      <span> 30 km/h</span>
-    </div>
-    <div>
-      <span> Precio/hora : </span>
-      <span> S/.10 </span>
-    </div>
-    <div>
-      <span> Distancia : </span>
-      <span> 1.2km </span>
+      <div class="">
+        <span> Velocidad</span>
+        <span> : 30 km/h</span>
+      </div>
+      <div>
+        <span> Distancia</span>
+        <span> : 1.2km </span>
+      </div>
     </div>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary">Reservar</button>
+  </mat-card-actions>
 </mat-card>

@@ -30,21 +30,22 @@ export const routes: Routes = [
       {
         path: 'payment',
         loadComponent: () =>
-          import('./public/pages/home/home.component').then(
-            (m) => m.HomeComponent
-          ),
+          import(
+            './payment/pages/payment-managment/payment-managment.component'
+          ).then((m) => m.PaymentManagmentComponent),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import(
+            './profile/pages/profile-managment/profile-managment.component'
+          ).then((m) => m.ProfileManagmentComponent),
       },
     ],
     canActivate: [AuthGuard],
   },
-  {
-    path: 'payment',
-    component: PaymentManagmentComponent,
-    title: 'Payment',
-    canActivate: [AuthGuard],
-  },
   { path: 'register', component: RegisterComponent, title: 'Register' },
   { path: 'login', component: LoginComponent, title: 'Login' },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/' },
 ];

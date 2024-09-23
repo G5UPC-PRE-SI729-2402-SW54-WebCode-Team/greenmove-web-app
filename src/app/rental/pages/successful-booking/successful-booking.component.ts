@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-successful-booking',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './successful-booking.component.html',
-  styleUrl: './successful-booking.component.scss'
+  styleUrl: './successful-booking.component.scss',
 })
-export class SuccessfulBookingComponent {
-
-}
+export class SuccessfulBookingComponent {}

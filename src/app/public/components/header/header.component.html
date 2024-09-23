@@ -1,10 +1,14 @@
 <mat-toolbar color="primary">
-  <h1 class="custom-toolbar-text">GREENMOVE</h1>
+  <h1 class="custom-toolbar-text" (click)="goToHome()">GREENMOVE</h1>
   <button mat-icon-button aria-label="Example icon-button with share icon">
     <!-- (click)="goToPayment()" -->
     <mat-icon>payment</mat-icon>
   </button>
-  <button mat-icon-button aria-label="Example icon-button with share icon">
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with share icon"
+    (click)="goToProfile()"
+  >
     <!-- (click)="goToProfile()" -->
     <mat-icon>account_circle</mat-icon>
   </button>

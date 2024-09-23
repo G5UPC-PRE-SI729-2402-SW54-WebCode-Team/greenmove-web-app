@@ -1,6 +1,10 @@
 @use "@angular/material" as mat;
-
 // Define la paleta de colores personalizada para el color primario
+$inter-font-family: "Inter", sans-serif;
+
+// Crea una configuración de tipografía usando mat-typography-config
+
+$primary-color: #00ffb2;
 
 $greenmove-primary: mat.define-palette(
   (
@@ -44,10 +48,14 @@ $greenmove-theme: mat.define-light-theme(
 html,
 body {
   height: 100%;
-  font-family: "Poppins", sans-serif;
 }
 body {
   margin: 0;
+}
+.body,
+mat-card,
+mat-toolbar {
+  font-family: "Inter, sans-serif" !important;
 }
 
 .custom-toolbar-text {
@@ -156,7 +164,7 @@ $xl: 32px;
   text-align: center;
 }
 
-.p-xs {
+.p-sm {
   padding: $sm;
 }
 
@@ -176,8 +184,52 @@ $xl: 32px;
   width: 40%;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.w-available {
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+
 .grow-1 {
   flex-grow: 1;
+}
+
+.icon-xl {
+  font-size: 128px;
+  height: 128px !important;
+  width: 128px !important;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.gap-xl {
+  gap: $xl;
+}
+
+.title-text {
+  font-size: 64px;
+  line-height: 77px;
+}
+
+.radius-md {
+  border-radius: $md;
+}
+
+app-card {
+  cursor: pointer;
 }
 
 @mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
@@ -187,13 +239,25 @@ $xl: 32px;
   align-items: $align;
 }
 
+.container-between-start {
+  @include flex-container(row, space-between, flex-start);
+}
+
 .container-col-center {
   @include flex-container(column, center, center);
+}
+.container-col-start {
+  @include flex-container(column, center, start);
 }
 
 .container-center {
   @include flex-container(row, center, center);
 }
+.container-start {
+  @include flex-container(row, center, center);
+}
+
+
 
 @mixin grid-container($columns: 3, $gap: $lg, $row-gap: 4px) {
   display: grid;
@@ -220,8 +284,6 @@ app-layout {
   flex-direction: column;
   flex-grow: 1;
 }
-
-
-
+@include mat.core();
 // Aplicar el tema personalizado a la aplicación
 @include mat.all-component-themes($greenmove-theme);
