@@ -1,1 +1,11 @@
-<app-vehicle-management></app-vehicle-management>
+<div class="home-container">
+  <div class="container-start gap-lg">
+    <span class="title-text">
+      {{
+        "WELCOME"
+          | translate : { user: user.getUser()?.name?.toLocaleUpperCase() }
+      }}
+    </span>
+  </div>
+  <app-vehicle-management></app-vehicle-management>
+</div>

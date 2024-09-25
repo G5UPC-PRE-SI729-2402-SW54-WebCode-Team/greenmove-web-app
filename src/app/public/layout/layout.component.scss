@@ -1,4 +1,9 @@
+@import "../../../styles.scss";
+
 .layout-container {
   flex-grow: 1;
+  padding: $sm $xl $xl;
+  @media (max-width: 768px) {
+    overflow-y: scroll;
+  }
 }
-

@@ -1,25 +1,25 @@
+<app-nav-bar [title]="'PROFILE.TITLE' | translate"></app-nav-bar>
 <div class="profile-management-container">
-  <h1 class="title-text">Perfil de usuario</h1>
   <div class="container-between-start">
     <div class="container-col-center gap-xl">
       <div class="image-profile-container p-md">
         <img
           class="image-profile"
-          src="../../../../assets/imgs/monark.jpg"
-          alt=""
+          src="https://s3-alpha-sig.figma.com/img/06f8/ffd2/8860ece6968355ec502c7afe0b216096?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bT3y2UxyKV9SvnAUI0HUlP4KEAsULMNTK0DHfJhL5b7SDu4pMHufvz3iLzNFgP~FWV3tyTC98Bhg577Mo~HmH8Ez~szbH96fVCIM9EMcBSZ8p0bbUCaPgd8i~kpqA-R1UVBpQc0Sa2CIYE16p12uQ1fnB944B6e7f9ciiFjDkGidBpMIfmR4SeVMEgxewmliNOLQBTLwgmPAr1f-gsaxZzJAGls~t0VJ9eoghKiQkgcwJL9V2lsjOHmQDW~-zBH9-JnUZCa4ihAOlp1smGXzzCN8D--Mb6NIYFeELesQZesD-nshIO4q2ly-GYHxn4juHzsNEzGfaxpdWspFi4CJhg__"
+          alt="image__profile"
         />
       </div>
       <div class="bg-primary ph-xl pv-md w-available">
         <div class="container-col-start mb-sm mb-md">
-          <span> Nombre completo </span>
+          <span> {{ "PROFILE.CARD.NAME_COMPLETE" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span> Enrique Villón VillónVillónVillónVillónVillón</span>
+            <span> Enrique Villón </span>
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> Suscribción </span>
+          <span> {{ "PROFILE.CARD.SUBSCRIPTION" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> Ubicación </span>
+          <span> {{ "PROFILE.CARD.UBICATION" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -36,7 +36,7 @@
         </div>
 
         <div class="container-col-start">
-          <span> Calificación </span>
+          <span> {{ "PROFILE.CARD.CALIFICATION" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -44,12 +44,53 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button color="primary" (click)="goToBookingActive()">
-        Consulta reserva activa
-      </button>
+
+      <div class="flex col gap-xl">
+        <button mat-fab extended color="primary" (click)="goToBookingActive()">
+          <mat-icon> book_online</mat-icon>
+          {{ "PROFILE.BUTTONS.CONSULT_ACTIVE_RESERVE" | translate }}
+        </button>
+
+        <button
+          mat-fab
+          extended
+          color="secondary"
+          (click)="authService.logout()"
+        >
+          <mat-icon>logout</mat-icon>
+
+          {{ "PROFILE.BUTTONS.SING_OUT" | translate }}
+        </button>
+      </div>
     </div>
     <div>
       <h1>Historial de viajes</h1>
+      <table
+        mat-table
+        [dataSource]="tableBasicExample.dataSource"
+        class="mat-elevation-z9"
+      >
+        <ng-container matColumnDef="dateStart">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "HISTORY_RENTALS.CARD.START_DATE" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.dateStart }}</td>
+        </ng-container>
+        <ng-container matColumnDef="dateEnd">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "HISTORY_RENTALS.CARD.END_DATE" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.dateEnd }}</td>
+        </ng-container>
+        <ng-container matColumnDef="hours">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "HISTORY_RENTALS.CARD.HOURS" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.hours }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
     </div>
   </div>
 </div>

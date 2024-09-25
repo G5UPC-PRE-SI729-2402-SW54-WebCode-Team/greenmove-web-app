@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,10 @@ import { LoginComponent } from './auth/login/login.component';
 })
 export class AppComponent {
   title = 'greenmove-web-app';
-  constructor(private router: Router) {}
+  constructor(translate: TranslateService, private router: Router) {
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
   goToPayment = () => {
     this.router.navigate(['/payment']);
   };

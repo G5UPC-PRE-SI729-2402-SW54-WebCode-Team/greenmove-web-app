@@ -1,4 +1,4 @@
-<mat-card color="primary" (click)="goTo()">
+<mat-card color="primary">
   <mat-card-header color="primary">
     <mat-card-title>{{ vehicle.name }}</mat-card-title>
   </mat-card-header>
@@ -6,16 +6,18 @@
     <img mat-card-md-image [src]="vehicle.urlImg" alt="{{ vehicle.title }}" />
     <div>
       <div class="">
-        <span> Velocidad</span>
+        <span> {{ "VEHICLE.CARD.SPEED" | translate }}</span>
         <span> : 30 km/h</span>
       </div>
       <div>
-        <span> Distancia</span>
+        <span> {{ "VEHICLE.CARD.DISTANCE" | translate }}</span>
         <span> : 1.2km </span>
       </div>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary">Reservar</button>
+    <button mat-flat-button color="primary" (click)="goTo()">
+      {{ "VEHICLE.CARD.BUTTON" | translate }}
+    </button>
   </mat-card-actions>
 </mat-card>

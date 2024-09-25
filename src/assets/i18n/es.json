@@ -1,0 +1,44 @@
+{
+  "WELCOME": "¡ Bienvenido {{user}} !",
+  "PROFILE": {
+    "TITLE": "Perfil del usuario",
+    "CARD": {
+      "NAME_COMPLETE": "Nombre completo",
+      "SUBSCRIPTION": "Subscription",
+      "UBICATION": "Ubicación",
+      "CALIFICATION": "Calificacion"
+    },
+    "BUTTONS": {
+      "CONSULT_ACTIVE_RESERVE": "Consulta reserva activa",
+      "SING_OUT": "Cerrar Sesión"
+    }
+  },
+  "VEHICLE": {
+    "TITLE": "Vehículos disponibles",
+    "CARD": {
+      "SPEED": "Velocidad",
+      "DISTANCE": "Distancia"
+    }
+  },
+  "HISTORY_RENTALS": {
+    "TITLE": "Historial de viajes",
+    "CARD": {
+      "START_DATE": "Fecha Inicio",
+      "END_DATE": "Fecha Fin",
+      "HOURS": "Horas"
+    }
+  },
+  "FOOTER": {
+    "ABOUT": "Acerca de nosotros",
+    "REPORT_PROBLEM": "Reportar problema",
+    "SAFETY_TIPS": "Consejos de seguridad"
+  },
+  "SUSCRIBTIONS": {
+    "TITLE": "Suscripciones",
+    "CARD": {
+      "NAME": "{{subscription}} PLAN",
+      "BENEFITS": "Beneficios",
+      "BUTTON": "Buy"
+    }
+  }
+}

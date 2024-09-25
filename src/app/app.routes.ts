@@ -28,6 +28,14 @@ export const routes: Routes = [
         title: 'Success',
       },
       {
+        path: 'reserve-active',
+        loadComponent: () =>
+          import('./rental/pages/active-reserve/active-reserve.component').then(
+            (m) => m.ActiveReserveComponent
+          ),
+        title: 'Success',
+      },
+      {
         path: 'payment',
         loadComponent: () =>
           import(
@@ -40,6 +48,20 @@ export const routes: Routes = [
           import(
             './profile/pages/profile-managment/profile-managment.component'
           ).then((m) => m.ProfileManagmentComponent),
+      },
+      {
+        path: 'suscriptions',
+        loadComponent: () =>
+          import(
+            './suscription/pages/suscription-management/suscription-management.component'
+          ).then((m) => m.SuscriptionManagementComponent),
+      },
+      {
+        path: 'not-suscriptions',
+        loadComponent: () =>
+          import(
+            './suscription/pages/not-suscription/not-suscription.component'
+          ).then((m) => m.NotSuscriptionComponent),
       },
     ],
     canActivate: [AuthGuard],
