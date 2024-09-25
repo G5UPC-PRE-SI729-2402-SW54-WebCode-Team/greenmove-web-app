@@ -1,0 +1,12 @@
+@import "../../../../styles.scss";
+
+.profile-management-container {
+  .image-profile-container {
+    background: $primary-color;
+    border-radius: 30px;
+    .image-profile {
+      width: 250px;
+      border-radius: 100%;
+    }
+  }
+}

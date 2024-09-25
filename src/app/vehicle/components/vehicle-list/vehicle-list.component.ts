@@ -72,7 +72,7 @@ export class VehicleListComponent {
       },
     },
     {
-      id: '6',
+      id: '7',
       name: 'Bicicleta Monark',
       urlImg: '../../../../assets/imgs/monark.jpg',
       type: {
@@ -82,7 +82,17 @@ export class VehicleListComponent {
       },
     },
     {
-      id: '6',
+      id: '8',
+      name: 'Bicicleta Monark',
+      urlImg: '../../../../assets/imgs/monark.jpg',
+      type: {
+        icon: 'bicicle-icon',
+        id: '1',
+        type: 'Car',
+      },
+    },
+    {
+      id: '9',
       name: 'Bicicleta Monark',
       urlImg: '../../../../assets/imgs/monark.jpg',
       type: {

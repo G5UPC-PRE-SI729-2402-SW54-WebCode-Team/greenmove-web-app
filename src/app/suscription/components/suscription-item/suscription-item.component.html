@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    {{
+      "SUSCRIBTIONS.CARD.NAME"
+        | translate : { subscription: suscription.name.toUpperCase() }
+    }}</mat-card-header
+  >
+  <mat-card-content>
+    {{ "SUSCRIBTIONS.CARD.BENEFITS" | translate }}
+    <div>
+      <ul>
+        <li>{{ suscription.benefits.vehicles }} vehículos al mes</li>
+        <li>Tiempo de {{ suscription.benefits.time }}h por vehículo</li>
+        <li>Seguro {{ suscription.benefits.segure }}</li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary">
+      {{ "SUSCRIBTIONS.CARD.BUTTON" | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
