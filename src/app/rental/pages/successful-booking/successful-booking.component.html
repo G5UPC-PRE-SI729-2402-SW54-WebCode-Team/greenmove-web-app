@@ -1,4 +1,9 @@
-<div class="successful-booking-container">
+<app-nav-bar></app-nav-bar>
+<div class="container-col-center h-full successful-booking-container">
+  <mat-icon color="primary" class="icon-xl"> check_circle</mat-icon>
   <h1>Tu reserva ha sido exitosa</h1>
   <h3>Tu código es X98129E3B</h3>
+  <button mat-fab extended color="primary" (click)="goToActiveReserve()">
+    Gestiona tu reserva aquí
+  </button>
 </div>

@@ -1,20 +1,23 @@
 @use "@angular/material" as mat;
-
 // Define la paleta de colores personalizada para el color primario
+$inter-font-family: "Inter", sans-serif;
+
+// Crea una configuración de tipografía usando mat-typography-config
+
+$primary-color: #04a033;
 
 $greenmove-primary: mat.define-palette(
   (
-    50: #e5fff5,
-    100: #b3ffe0,
-    200: #80ffcc,
-    300: #4dffb8,
-    400: #1aff9d,
-    500: #00ffb2,
-    // Color primario personalizado
-    600: #00cc92,
-    700: #009973,
-    800: #006653,
-    900: #003333,
+    50: #e6f7eb,
+    100: #b3e6c7,
+    200: #80d6a3,
+    300: #4dc67f,
+    400: #1ab55b,
+    500: #04a033,  // Color primario actualizado
+    600: #038c2e,
+    700: #027827,
+    800: #016422,
+    900: #004014,
     contrast: (
       50: rgba(0, 0, 0, 0.87),
       100: rgba(0, 0, 0, 0.87),
@@ -44,10 +47,17 @@ $greenmove-theme: mat.define-light-theme(
 html,
 body {
   height: 100%;
-  font-family: "Poppins", sans-serif;
 }
 body {
   margin: 0;
+}
+.body,
+mat-card,
+mat-toolbar {
+  font-family: "Inter, sans-serif" !important;
+  padding: 32px !important;
+  display: flex;
+  justify-content: space-between !important;
 }
 
 .custom-toolbar-text {
@@ -156,7 +166,7 @@ $xl: 32px;
   text-align: center;
 }
 
-.p-xs {
+.p-sm {
   padding: $sm;
 }
 
@@ -176,10 +186,102 @@ $xl: 32px;
   width: 40%;
 }
 
+.w-50 {
+  width: 50%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.w-available {
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+
 .grow-1 {
   flex-grow: 1;
 }
 
+.icon-xl {
+  font-size: 128px;
+  height: 128px !important;
+  width: 128px !important;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.gap-lg {
+  gap: $lg;
+}
+
+.gap-xl {
+  gap: $xl;
+}
+
+.gap-md {
+  gap: $md;
+}
+
+.title-text {
+  font-size: clamp(32px, 3vw, 64px);
+  line-height: 77px;
+  font-weight: 700;
+}
+
+.radius-md {
+  border-radius: $md;
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+app-card {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.mat-icon {
+  color: black !important;
+}
+
+.mat-toolbar.mat-primary {
+  color: black !important;
+}
+
+.mdc-button__label {
+  color: black !important;
+}
 @mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
@@ -187,12 +289,25 @@ $xl: 32px;
   align-items: $align;
 }
 
+.container-between-start {
+  @include flex-container(row, space-between, flex-start);
+}
+
 .container-col-center {
   @include flex-container(column, center, center);
+}
+.container-col-start {
+  @include flex-container(column, center, start);
 }
 
 .container-center {
   @include flex-container(row, center, center);
+}
+.container-start {
+  @include flex-container(row, start, center);
+}
+.container-between {
+  @include flex-container(row, space-between, center);
 }
 
 @mixin grid-container($columns: 3, $gap: $lg, $row-gap: 4px) {
@@ -205,7 +320,7 @@ $xl: 32px;
 .container-grid-list {
   @include grid-container(3, $lg, $md);
   @media (max-width: 768px) {
-    @include grid-container(2, $lg, $md);
+    @include grid-container(1, $lg, $md);
   }
 }
 
@@ -218,10 +333,13 @@ app-root {
 app-layout {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  height: 100vh;
 }
 
+app-login {
+  height: 100vh;
+}
 
-
+@include mat.core();
 // Aplicar el tema personalizado a la aplicación
 @include mat.all-component-themes($greenmove-theme);

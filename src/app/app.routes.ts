@@ -28,23 +28,46 @@ export const routes: Routes = [
         title: 'Success',
       },
       {
+        path: 'reserve-active',
+        loadComponent: () =>
+          import('./rental/pages/active-reserve/active-reserve.component').then(
+            (m) => m.ActiveReserveComponent
+          ),
+        title: 'Success',
+      },
+      {
         path: 'payment',
         loadComponent: () =>
-          import('./public/pages/home/home.component').then(
-            (m) => m.HomeComponent
-          ),
+          import(
+            './payment/pages/payment-managment/payment-managment.component'
+          ).then((m) => m.PaymentManagmentComponent),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import(
+            './profile/pages/profile-managment/profile-managment.component'
+          ).then((m) => m.ProfileManagmentComponent),
+      },
+      {
+        path: 'suscriptions',
+        loadComponent: () =>
+          import(
+            './suscription/pages/suscription-management/suscription-management.component'
+          ).then((m) => m.SuscriptionManagementComponent),
+      },
+      {
+        path: 'not-suscriptions',
+        loadComponent: () =>
+          import(
+            './suscription/pages/not-suscription/not-suscription.component'
+          ).then((m) => m.NotSuscriptionComponent),
       },
     ],
     canActivate: [AuthGuard],
   },
-  {
-    path: 'payment',
-    component: PaymentManagmentComponent,
-    title: 'Payment',
-    canActivate: [AuthGuard],
-  },
   { path: 'register', component: RegisterComponent, title: 'Register' },
   { path: 'login', component: LoginComponent, title: 'Login' },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/' },
 ];

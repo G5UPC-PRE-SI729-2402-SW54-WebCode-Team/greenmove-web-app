@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+
+.login-container{
+    form{
+        border: 2px solid $primary-color;
+        margin: $xl auto;
+        border-radius: 14px;
+    }
+}

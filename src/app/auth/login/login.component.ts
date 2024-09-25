@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MyErrorStateMatcher } from '../register/register.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -29,12 +30,13 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
+  authService = inject(AuthService);
   loginForm: FormGroup;
-  emailFormControl: FormControl;
   matcher = new MyErrorStateMatcher();
+
   constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.emailFormControl = new FormControl('');
     this.loginForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -42,5 +44,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   toGoRegister(): void {
     this.router.navigate(['/register']);
+  }
+  toGoLogin(): void {
+    this.authService.login({
+      name: this.loginForm.value.name,
+      id: '12412rfarr',
+      jwtToken: '12412532513refqefq352',
+    });
+    this.router.navigate(['/']);
   }
 }
