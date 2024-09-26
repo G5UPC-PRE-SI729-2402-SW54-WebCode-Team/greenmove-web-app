@@ -1,7 +1,7 @@
 <div class="login-container h-full">
   <h1 class="text-center title-text mb-xl">Login</h1>
-  <form class="container-col-center pv-xl w-50" [formGroup]="loginForm">
-    <mat-form-field class="w-40" appearance="outline">
+  <form class="container-col-center pv-xl" [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
       <input
         type="text"
@@ -14,7 +14,7 @@
       <mat-error>El nombre es <strong>requerido</strong></mat-error>
       }
     </mat-form-field>
-    <mat-form-field class="w-40" appearance="outline">
+    <mat-form-field  appearance="outline">
       <mat-label>Email</mat-label>
       <input
         type="email"
@@ -27,7 +27,7 @@
       <mat-error>El email es <strong>requerido</strong></mat-error>
       }
     </mat-form-field>
-    <mat-form-field class="w-40" appearance="outline">
+    <mat-form-field  appearance="outline">
       <mat-label>Contraseña</mat-label>
       <input
         type="password"

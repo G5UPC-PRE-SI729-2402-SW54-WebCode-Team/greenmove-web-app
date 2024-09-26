@@ -51,7 +51,7 @@ export class ProfileManagmentComponent implements OnInit {
   ngOnInit(): void {}
 
   goToBookingActive(): void {
-    this.router.navigate(['/booking-active']);
+    this.router.navigate(['/reserve-active']);
   }
 
   goToBack(): void {

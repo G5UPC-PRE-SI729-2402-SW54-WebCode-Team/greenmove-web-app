@@ -2,7 +2,7 @@
   <h1 class="custom-toolbar-text cursor-pointer" (click)="goToHome()">
     GREENMOVE
   </h1>
-  <div class="container-center gap-lg">
+  <div class="container-center gap-md">
     <mat-button-toggle-group
       [value]="currentLang"
       appearance="legacy"
@@ -17,15 +17,38 @@
         >{{ language.toUpperCase() }}</mat-button-toggle
       >
     </mat-button-toggle-group>
-    <button
-      mat-icon-button
-      aria-label="suscription"
-      (click)="goToSuscriptions()"
-    >
-      <mat-icon>subscriptions</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="profile" (click)="goToProfile()">
-      <mat-icon>account_circle</mat-icon>
-    </button>
+
+    <ng-container *ngIf="this.windowWidth < this.maxMobile">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="goToSuscriptions()">
+          <mat-icon>subscriptions</mat-icon>
+          <span>Subscribciones</span>
+        </button>
+        <button mat-menu-item (click)="goToProfile()">
+          <mat-icon>account_circle</mat-icon>
+          <span>Perfil</span>
+        </button>
+      </mat-menu>
+    </ng-container>
+
+    <ng-container *ngIf="this.windowWidth > this.maxMobile">
+      <button
+        mat-icon-button
+        aria-label="suscription"
+        (click)="goToSuscriptions()"
+      >
+        <mat-icon>subscriptions</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="profile" (click)="goToProfile()">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </ng-container>
   </div>
 </mat-toolbar>
