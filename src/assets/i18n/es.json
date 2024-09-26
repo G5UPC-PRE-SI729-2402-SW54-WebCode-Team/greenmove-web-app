@@ -17,7 +17,8 @@
     "TITLE": "Vehículos disponibles",
     "CARD": {
       "SPEED": "Velocidad",
-      "DISTANCE": "Distancia"
+      "DISTANCE": "Distancia",
+      "BOOKING": "Reservar"
     }
   },
   "HISTORY_RENTALS": {
@@ -36,7 +37,7 @@
   "SUSCRIBTIONS": {
     "TITLE": "Suscripciones",
     "CARD": {
-      "NAME": "{{subscription}} PLAN",
+      "NAME": "PLAN {{subscription}}",
       "BENEFITS": "Beneficios",
       "BUTTON": "Buy"
     }

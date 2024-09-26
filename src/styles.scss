@@ -13,7 +13,8 @@ $greenmove-primary: mat.define-palette(
     200: #80d6a3,
     300: #4dc67f,
     400: #1ab55b,
-    500: #04a033,  // Color primario actualizado
+    500: #04a033,
+    // Color primario actualizado
     600: #038c2e,
     700: #027827,
     800: #016422,
@@ -54,10 +55,24 @@ body {
 .body,
 mat-card,
 mat-toolbar {
-  font-family: "Inter, sans-serif" !important;
+  font-family: "Nunito, sans-serif" !important;
   padding: 32px !important;
   display: flex;
   justify-content: space-between !important;
+}
+.mat-typography h1 {
+  font-family: "Nunito, sans-serif" !important;
+}
+.mat-typography {
+  font-family: "Nunito, sans-serif" !important;
+}
+
+.mat-mdc-card-title {
+  font-family: "Nunito, sans-serif" !important;
+}
+
+.mdc-button__label {
+  font-family: "Nunito, sans-serif" !important;
 }
 
 .custom-toolbar-text {
@@ -94,6 +109,19 @@ $xl: 32px;
 }
 .mb-xl {
   margin-bottom: $xl;
+}
+
+.ml-sm {
+  margin-left: $sm;
+}
+.ml-md {
+  margin-left: $md;
+}
+.ml-lg {
+  margin-left: $lg;
+}
+.ml-xl {
+  margin-left: $xl;
 }
 
 .pb-sm {
@@ -246,7 +274,7 @@ $xl: 32px;
 }
 
 .title-text {
-  font-size: clamp(32px, 3vw, 64px);
+  font-size: clamp(28px, 3vw, 64px);
   line-height: 77px;
   font-weight: 700;
 }
