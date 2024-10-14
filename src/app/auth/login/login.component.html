@@ -1,7 +1,7 @@
 <div class="login-container h-full">
   <h1 class="text-center title-text mb-xl">Login</h1>
-  <form class="container-col-center pv-xl w-50" [formGroup]="loginForm">
-    <mat-form-field class="w-40" appearance="outline">
+  <form class="container-col-center pv-xl" [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
       <input
         type="text"
@@ -10,11 +10,11 @@
         [errorStateMatcher]="matcher"
         placeholder="Ingresa tu nombre"
       />
-      @if (loginForm.get('name')?.hasError('required') ) {
-      <mat-error>El nombre es <strong>requerido</strong></mat-error>
+      @if (loginForm.get('name')?.invalid ) {
+      <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
-    <mat-form-field class="w-40" appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input
         type="email"
@@ -23,11 +23,11 @@
         [errorStateMatcher]="matcher"
         placeholder="Ingresa tu email"
       />
-      @if (loginForm.get('name')?.hasError('required') ) {
-      <mat-error>El email es <strong>requerido</strong></mat-error>
+      @if (loginForm.get('email')?.invalid ) {
+      <mat-error>Ingresa el <strong> email </strong> correcto</mat-error>
       }
     </mat-form-field>
-    <mat-form-field class="w-40" appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Contraseña</mat-label>
       <input
         type="password"
@@ -36,8 +36,9 @@
         [errorStateMatcher]="matcher"
         placeholder="Ingresa tu contraseña"
       />
-      @if (loginForm.get('name')?.hasError('required') ) {
-      <mat-error>La contraseña es <strong>requerida</strong></mat-error>
+
+      @if (loginForm.get('password')?.invalid ) {
+      <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
     <div class="container-center mt-lg mb-lg" (click)="toGoRegister()">

@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.emailFormControl = new FormControl('');
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }

@@ -24,7 +24,7 @@ export class VehicleListComponent {
     {
       id: '2',
       name: 'Bicicleta Monark',
-      urlImg: '../../../../assets/imgs/monark.jpg',
+      urlImg: '../../../../assets/imgs/box-vintage.jpg',
       type: {
         icon: 'bicicle-icon',
         id: '1',
@@ -34,7 +34,7 @@ export class VehicleListComponent {
     {
       id: '3',
       name: 'Bicicleta Monark',
-      urlImg: '../../../../assets/imgs/monark.jpg',
+      urlImg: '../../../../assets/imgs/montanera-plegable.jpg',
       type: {
         icon: 'bicicle-icon',
         id: '1',
@@ -43,18 +43,18 @@ export class VehicleListComponent {
     },
     {
       id: '4',
-      name: 'Bicicleta Monark',
-      urlImg: '../../../../assets/imgs/monark.jpg',
+      name: 'Scooter Xaiomi',
+      urlImg: '../../../../assets/imgs/xiaomi-scooter.jpg',
       type: {
         icon: 'bicicle-icon',
         id: '1',
-        type: 'Car',
+        type: 'Scooter',
       },
     },
     {
       id: '5',
-      name: 'Bicicleta Monark',
-      urlImg: '../../../../assets/imgs/monark.jpg',
+      name: 'Renault R1',
+      urlImg: '../../../../assets/imgs/renault-auto.jpg',
       type: {
         icon: 'bicicle-icon',
         id: '1',
@@ -83,8 +83,8 @@ export class VehicleListComponent {
     },
     {
       id: '8',
-      name: 'Bicicleta Monark',
-      urlImg: '../../../../assets/imgs/monark.jpg',
+      name: 'Peugeot R900',
+      urlImg: '../../../../assets/imgs/peugeot-auto.jpg',
       type: {
         icon: 'bicicle-icon',
         id: '1',

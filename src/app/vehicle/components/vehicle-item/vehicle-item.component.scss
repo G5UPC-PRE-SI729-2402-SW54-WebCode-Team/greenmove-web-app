@@ -1,6 +1,4 @@
-// img {
-//   width: 100%;
-// }
+@import '../../../../styles.scss';
 
 .mat-mdc-card-header {
   justify-content: center;
@@ -9,6 +7,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  img{
+    object-fit: contain;
+  }
 }
 .mat-mdc-card-actions {
   justify-content: end;
