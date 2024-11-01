@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/monark.jpg",
+      "urlImg": "http://localhost:3000/imgs/monark.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -13,7 +13,7 @@
     {
       "id": "2",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/box-vintage.jpg",
+      "urlImg": "http://localhost:3000/imgs/box-vintage.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -23,7 +23,7 @@
     {
       "id": "3",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/montanera-plegable.jpg",
+      "urlImg": "http://localhost:3000/imgs/montanera-plegable.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -33,7 +33,7 @@
     {
       "id": "4",
       "name": "Scooter Xaiomi",
-      "urlImg": "src/assets/imgs/xiaomi-scooter.jpg",
+      "urlImg": "http://localhost:3000/imgs/xiaomi-scooter.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -43,7 +43,7 @@
     {
       "id": "5",
       "name": "Renault R1",
-      "urlImg": "src/assets/imgs/renault-auto.jpg",
+      "urlImg": "http://localhost:3000/imgs/renault-auto.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -53,7 +53,7 @@
     {
       "id": "6",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/monark.jpg",
+      "urlImg": "http://localhost:3000/imgs/monark.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -63,7 +63,7 @@
     {
       "id": "7",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/monark.jpg",
+      "urlImg": "http://localhost:3000/imgs/monark.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -73,7 +73,7 @@
     {
       "id": "8",
       "name": "Peugeot R900",
-      "urlImg": "src/assets/imgs/peugeot-auto.jpg",
+      "urlImg": "http://localhost:3000/imgs/peugeot-auto.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -83,7 +83,7 @@
     {
       "id": "9",
       "name": "Bicicleta Monark",
-      "urlImg": "src/assets/imgs/monark.jpg",
+      "urlImg": "http://localhost:3000/imgs/monark.jpg",
       "type": {
         "icon": "bicicle-icon",
         "id": "1",
@@ -96,15 +96,37 @@
     {
       "id": 1,
       "name": "Drako Domingo",
-      "urlImage": "monark.jpg",
+      "urlImage": "http://localhost:3000/imgs/img1.jpg",
       "phone": 99292912,
       "rate": 4.2,
-      "ubication": "San Isidro"
+      "ubication": "San Isidro",
+      "vehicles": [
+        {
+          "id": "1",
+          "name": "Bicicleta Monark",
+          "urlImg": "http://localhost:3000/imgs/monark.jpg",
+          "type": {
+            "icon": "bicicle-icon",
+            "id": "1",
+            "type": "Car"
+          }
+        },
+        {
+          "id": "2",
+          "name": "Bicicleta Monark",
+          "urlImg": "http://localhost:3000/imgs/box-vintage.jpg",
+          "type": {
+            "icon": "bicicle-icon",
+            "id": "1",
+            "type": "Car"
+          }
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Lucía Ramos",
-      "urlImage": "monark-mirage-city-2.JPG",
+      "urlImage": "http://localhost:3000/imgs/img1.jpg",
       "phone": 989123456,
       "rate": 4.7,
       "ubication": "Miraflores"
@@ -172,6 +194,156 @@
       "phone": 963214587,
       "rate": 4.9,
       "ubication": "Lince"
+    }
+  ],
+  "rentals": [
+    {
+      "id": 1,
+      "startDate": "2024-10-01",
+      "endDate": "2024-10-02",
+      "ownerId": "1",
+      "vehicleId": "5",
+      "owner": {
+        "id": 2,
+        "name": "Lucía Ramos",
+        "urlImage": "http://localhost:3000/imgs/img1.jpg",
+        "phone": 989123456,
+        "rate": 4.7,
+        "ubication": "Miraflores"
+      },
+      "vehicle": {
+        "id": "1",
+        "name": "Bicicleta Monark",
+        "urlImg": "http://localhost:3000/imgs/monark.jpg",
+        "type": {
+          "icon": "bicicle-icon",
+          "id": "1",
+          "type": "Car"
+        },
+        "battery": 4000,
+        "support": 100,
+        "speed": 40
+      },
+      "userId": "101",
+      "lat": "-12.0464",
+      "log": "-77.0428"
+    },
+    {
+      "id": 2,
+      "startDate": "2024-10-03",
+      "endDate": "2024-10-04",
+      "ownerId": "2",
+      "vehicleId": "3",
+      "userId": "102",
+      "lat": "-12.0564",
+      "log": "-77.0450"
+    },
+    {
+      "id": 3,
+      "startDate": "2024-10-05",
+      "endDate": "2024-10-06",
+      "ownerId": "3",
+      "vehicleId": "1",
+      "userId": "103",
+      "lat": "-12.0768",
+      "log": "-77.0386"
+    },
+    {
+      "id": 4,
+      "startDate": "2024-10-07",
+      "endDate": "2024-10-08",
+      "ownerId": "4",
+      "vehicleId": "7",
+      "userId": "104",
+      "lat": "-12.0825",
+      "log": "-77.0489"
+    },
+    {
+      "id": 5,
+      "startDate": "2024-10-09",
+      "endDate": "2024-10-10",
+      "ownerId": "5",
+      "vehicleId": "2",
+      "userId": "105",
+      "lat": "-12.0911",
+      "log": "-77.0523"
+    },
+    {
+      "id": 6,
+      "startDate": "2024-10-11",
+      "endDate": "2024-10-12",
+      "ownerId": "6",
+      "vehicleId": "4",
+      "userId": "106",
+      "lat": "-12.0433",
+      "log": "-77.0398"
+    }
+  ],
+
+  "stations": [
+    {
+      "id": "1",
+      "lat": "-12.0464",
+      "name": "Estación Central",
+      "adress": "Av. Principal 123, San Isidro",
+      "vehicles": [
+        { "vehicledId": 1, "available": true },
+        { "vehicledId": 3, "available": false },
+        { "vehicledId": 5, "available": true }
+      ]
+    },
+    {
+      "id": "2",
+      "lat": "-12.0564",
+      "name": "Estación Miraflores",
+      "adress": "Av. Larco 456, Miraflores",
+      "vehicles": [
+        { "vehicledId": 2, "available": true },
+        { "vehicledId": 4, "available": true },
+        { "vehicledId": 6, "available": false }
+      ]
+    },
+    {
+      "id": "3",
+      "lat": "-12.0768",
+      "name": "Estación Surco",
+      "adress": "Av. Benavides 789, Surco",
+      "vehicles": [
+        { "vehicledId": 7, "available": true },
+        { "vehicledId": 1, "available": false }
+      ]
+    },
+    {
+      "id": "4",
+      "lat": "-12.0825",
+      "name": "Estación Barranco",
+      "adress": "Av. Grau 123, Barranco",
+      "vehicles": [
+        { "vehicledId": 3, "available": true },
+        { "vehicledId": 5, "available": false },
+        { "vehicledId": 9, "available": true }
+      ]
+    },
+    {
+      "id": "5",
+      "lat": "-12.0911",
+      "name": "Estación La Molina",
+      "adress": "Av. La Fontana 321, La Molina",
+      "vehicles": [
+        { "vehicledId": 8, "available": true },
+        { "vehicledId": 2, "available": false }
+      ]
+    },
+    {
+      "id": "6",
+      "lat": "-12.0433",
+      "name": "Estación San Miguel",
+      "adress": "Av. La Marina 654, San Miguel",
+      "vehicles": [
+        { "vehicledId": 10, "available": true },
+        { "vehicledId": 6, "available": true },
+        { "vehicledId": 4, "available": false }
+      ]
     }
   ]
 }

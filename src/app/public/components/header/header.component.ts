@@ -46,10 +46,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
   }
   goToProfile(): void {
-    if (this.isUserRole) {
+    if (this.isUserRole()) {
       this.router.navigate(['/profile']);
     }
-    if (this.isOwnerRole) {
+    if (this.isOwnerRole()) {
       this.router.navigate(['/profile-owner']);
     }
   }
@@ -63,6 +63,7 @@ export class HeaderComponent implements OnInit {
     this.translate.use(lang);
   }
   isUserRole(): boolean {
+    console.log(this.authService.getUser().role === 'USER');
     return this.authService.getUser().role === 'USER';
   }
 

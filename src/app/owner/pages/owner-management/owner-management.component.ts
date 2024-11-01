@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TranslateModule } from '@ngx-translate/core';
+import { OwnerService } from '../../services/owner.service';
 
 @Component({
   selector: 'app-owner-management',
@@ -12,4 +13,9 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class OwnerManagementComponent implements OnInit {
   ngOnInit(): void {}
+  constructor(private ownerService: OwnerService) {}
+
+  ownerDetail() {
+    
+  }
 }

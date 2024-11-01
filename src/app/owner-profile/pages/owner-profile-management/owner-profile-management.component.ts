@@ -16,6 +16,7 @@ import {
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
+import { OwnerService } from '../../../owner/services/owner.service';
 export interface IHistoryRental {
   id: string;
   dateStart: string;
@@ -54,13 +55,19 @@ export class TableBasicExample {
 })
 export class OwnerProfileManagementComponent implements OnInit {
   authService = inject(AuthService);
+  ownerService = inject(OwnerService);
   tableBasicExample = new TableBasicExample();
   displayedColumns = this.tableBasicExample.displayedColumns;
   titlePage: string = 'Perfil del usuario';
   vehicles = [10, 10, 10, 20, 20, 20, 30, 40];
+  ownerEntrity: any = [];
   readonly dialog = inject(MatDialog);
 
-  constructor(private router: Router, private location: Location) {}
+  constructor(private router: Router, private location: Location) {
+    this.ownerService
+      .getById(1)
+      .subscribe((response: any) => (this.ownerEntrity = response[0]));
+  }
   ngOnInit(): void {}
 
   goToBookingActive(): void {
