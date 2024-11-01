@@ -4,9 +4,9 @@
     "TITLE": "Perfil del usuario",
     "CARD": {
       "NAME_COMPLETE": "Nombre completo",
-      "SUBSCRIPTION": "Subscription",
+      "SUBSCRIPTION": "Subscrición",
       "UBICATION": "Ubicación",
-      "CALIFICATION": "Calificacion"
+      "CALIFICATION": "Calificación"
     },
     "BUTTONS": {
       "CONSULT_ACTIVE_RESERVE": "Consulta reserva activa",
@@ -41,5 +41,25 @@
       "BENEFITS": "Beneficios",
       "BUTTON": "Buy"
     }
+  },
+  "RENTAL": {
+    "TITLE": "Gestiona tu viaje"
+  },
+  "PROFILEOWNER": {
+    "TITLE": "Gestión del propietario",
+    "SUBTITLE": "Vehículos activos",
+    "CARD": {
+      "NAME_COMPLETE": "Nombre completo",
+      "SUBSCRIPTION": "Subscription",
+      "UBICATION": "Ubicación",
+      "CALIFICATION": "Calificación"
+    },
+    "BUTTONS": {
+      "UPLOAD_VEHICLE": "Añade un vehículo",
+      "SING_OUT": "Cerrar Sesión"
+    }
+  },
+  "OWNERMANEGEMENT": {
+    "TITLE": "Administrador del propietario"
   }
 }

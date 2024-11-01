@@ -1,0 +1,15 @@
+@import "../../../../styles.scss";
+
+
+.profile-management-container {
+  .image-profile-container {
+    background: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    .image-profile {
+      width: 250px;
+      border-radius: 100%;
+    }
+  }
+}

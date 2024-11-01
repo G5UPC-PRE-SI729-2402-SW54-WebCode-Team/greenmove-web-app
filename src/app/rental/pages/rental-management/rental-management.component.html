@@ -1,1 +1,95 @@
-<p>rental-management works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-row-center h-full" *ngIf="rentalEntrity">
+  <h1 class="title-text text-center">{{ "RENTAL.TITLE" | translate }}</h1>
+  <div class="grid-repeat-fit mt-xxlg">
+    <div class="p-md">
+      <google-map
+        [height]="'400px'"
+        [width]="'100%'"
+        [center]="center"
+        [zoom]="zoom"
+      >
+        <map-marker [position]="markerPosition" [options]="markerOptions">
+        </map-marker>
+      </google-map>
+    </div>
+
+    <div class="container-col-center gap-lg p-md">
+      <mat-accordion [multi]="true">
+        <mat-expansion-panel
+          (opened)="panelOpenState.set(true)"
+          (closed)="panelOpenState.set(false)"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Información del owner </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div
+            class=""
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr"
+          >
+            <div>
+              <img
+                [src]="rentalEntrity.owner.urlImage"
+                alt="img_vehicle"
+                style="
+                  width: 70%;
+                  border: 1px solid black;
+                  border-radius: 100px;
+                  object-fit: contain;
+                "
+              />
+            </div>
+            <div class="container-col-start">
+              <span> Nombre: {{ rentalEntrity.owner.name }} </span>
+              <span> Celular: {{ rentalEntrity.owner.phone }}</span>
+            </div>
+            <div class="container-col-start">
+              <span> Puntuación: {{ rentalEntrity.owner.rate }} </span>
+              <span> Ubicación: {{ rentalEntrity.owner.ubication }} </span>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          (opened)="panelOpenState.set(true)"
+          (closed)="panelOpenState.set(false)"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Información del vehículo</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div
+            class=""
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr"
+          >
+            <div class="container-start">
+              <img
+                [src]="rentalEntrity.vehicle.urlImg"
+                alt="img_vehicle"
+                style="
+                  width: 70%;
+                  border: 1px solid black;
+                  border-radius: 100px;
+                  object-fit: contain;
+                "
+              />
+            </div>
+            <div class="container-col-start">
+              <span> {{ rentalEntrity.vehicle.name }} </span>
+              <span> Velocidad: {{ rentalEntrity.vehicle.speed }} </span>
+            </div>
+            <div class="container-col-start">
+              <span> Batería: {{ rentalEntrity.vehicle.battery }} mah </span>
+              <span>
+                Soporta hasta: {{ rentalEntrity.vehicle.support }} kg
+              </span>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div class="container-col-start gap-md">
+        <span> Tiempo restante: 2 horas 20 minutos 14 seg</span>
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+</div>

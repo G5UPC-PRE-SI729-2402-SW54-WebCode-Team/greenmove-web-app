@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -34,6 +35,7 @@ export class HeaderComponent implements OnInit {
   languages: string[] = ['en', 'es'];
   windowWidth: number;
   maxMobile = 768;
+  authService = inject(AuthService);
   constructor(private router: Router, private translate: TranslateService) {
     this.windowWidth = window.innerWidth;
     console.log(this.windowWidth);
@@ -44,7 +46,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
   }
   goToProfile(): void {
-    this.router.navigate(['/profile']);
+    if (this.isUserRole()) {
+      this.router.navigate(['/profile']);
+    }
+    if (this.isOwnerRole()) {
+      this.router.navigate(['/profile-owner']);
+    }
   }
   goToPayment(): void {
     this.router.navigate(['/payment']);
@@ -54,5 +61,13 @@ export class HeaderComponent implements OnInit {
   }
   useLanguage(lang: string) {
     this.translate.use(lang);
+  }
+  isUserRole(): boolean {
+    console.log(this.authService.getUser().role === 'USER');
+    return this.authService.getUser().role === 'USER';
+  }
+
+  isOwnerRole(): boolean {
+    return this.authService.getUser().role === 'OWNER';
   }
 }
