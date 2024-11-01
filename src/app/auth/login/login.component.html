@@ -36,11 +36,14 @@
         [errorStateMatcher]="matcher"
         placeholder="Ingresa tu contraseña"
       />
-
       @if (loginForm.get('password')?.invalid ) {
       <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
+    <mat-slide-toggle formControlName="isOwner" color="primary">
+      Quieres alquilar tu vehículo
+    </mat-slide-toggle>
+
     <div class="container-center mt-lg mb-lg" (click)="toGoRegister()">
       <span> Registrate aquí.</span>
     </div>

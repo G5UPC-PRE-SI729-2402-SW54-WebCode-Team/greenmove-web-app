@@ -1,4 +1,5 @@
 @use "@angular/material" as mat;
+
 // Define la paleta de colores personalizada para el color primario
 $inter-font-family: "Inter", sans-serif;
 
@@ -51,6 +52,7 @@ body {
 }
 body {
   margin: 0;
+  font-family: "Nunito, sans-serif" !important;
 }
 .body,
 mat-card,
@@ -84,6 +86,7 @@ $sm: 4px;
 $md: 16px;
 $lg: 24px;
 $xl: 32px;
+$xxlg: 48px;
 
 .mt-sm {
   margin-top: $sm;
@@ -96,6 +99,9 @@ $xl: 32px;
 }
 .mt-xl {
   margin-top: $xl;
+}
+.mt-xxlg {
+  margin-top: $xxlg;
 }
 
 .mb-sm {
@@ -321,6 +327,10 @@ app-card {
   @include flex-container(row, space-between, flex-start);
 }
 
+.container-around-center {
+  @include flex-container(row, space-around, center);
+}
+
 .container-col-center {
   @include flex-container(column, center, center);
 }
@@ -352,6 +362,11 @@ app-card {
   }
 }
 
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 app-root {
   display: flex;
   flex-direction: column;
@@ -371,3 +386,8 @@ app-login {
 @include mat.core();
 // Aplicar el tema personalizado a la aplicación
 @include mat.all-component-themes($greenmove-theme);
+
+.grid-repeat-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}

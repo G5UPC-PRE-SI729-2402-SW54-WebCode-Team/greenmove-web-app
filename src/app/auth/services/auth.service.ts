@@ -16,6 +16,7 @@ export class AuthService {
   }
 
   login(user: IUser) {
+    console.log('user entrante', user)
     localStorage.setItem('userGreen', JSON.stringify(user));
     this.userSubject.next(user);
   }

@@ -41,5 +41,24 @@
       "BENEFITS": "Beneficios",
       "BUTTON": "Buy"
     }
+  },
+  "RENTAL": {
+    "TITLE": "Gestiona tu viaje"
+  },
+  "PROFILEOWNER": {
+    "TITLE": "Gestión del propietario",
+    "CARD": {
+      "NAME_COMPLETE": "Nombre completo",
+      "SUBSCRIPTION": "Subscription",
+      "UBICATION": "Ubicación",
+      "CALIFICATION": "Calificacion"
+    },
+    "BUTTONS": {
+      "UPLOAD_VEHICLE": "Añade un vehículo",
+      "SING_OUT": "Cerrar Sesión"
+    }
+  },
+  "OWNERMANEGEMENT": {
+    "TITLE": "Administrador del propietario"
   }
 }

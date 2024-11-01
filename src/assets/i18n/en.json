@@ -41,5 +41,18 @@
       "BENEFITS": "Benefits",
       "BUTTON": "Buy"
     }
+  },
+  "PROFILEOWNER": {
+    "TITLE": "Owner Manegement",
+    "BUTTONS": {
+      "UPLOAD_VEHICLE": "Add vehicle",
+      "SING_OUT": "Log Out"
+    }
+  },
+  "OWNERMANEGEMENT": {
+    "TITLE": "Owner Manegement"
+  },
+  "RENTAL": {
+    "TITLE": "Trip Manegement"
   }
 }

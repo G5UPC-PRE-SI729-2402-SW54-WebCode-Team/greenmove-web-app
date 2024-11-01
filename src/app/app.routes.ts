@@ -20,6 +20,14 @@ export const routes: Routes = [
         title: 'Home',
       },
       {
+        path: 'rental-manegement',
+        loadComponent: () =>
+          import(
+            './rental/pages/rental-management/rental-management.component'
+          ).then((m) => m.RentalManagementComponent),
+        title: 'Home',
+      },
+      {
         path: 'rental/successful',
         loadComponent: () =>
           import(
@@ -41,6 +49,20 @@ export const routes: Routes = [
           import(
             './payment/pages/payment-managment/payment-managment.component'
           ).then((m) => m.PaymentManagmentComponent),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import(
+            './profile/pages/profile-managment/profile-managment.component'
+          ).then((m) => m.ProfileManagmentComponent),
+      },
+      {
+        path: 'profile-owner',
+        loadComponent: () =>
+          import(
+            './owner-profile/pages/owner-profile-management/owner-profile-management.component'
+          ).then((m) => m.OwnerProfileManagementComponent),
       },
       {
         path: 'profile',

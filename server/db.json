@@ -1,0 +1,177 @@
+{
+  "vehicles": [
+    {
+      "id": "1",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/monark.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/box-vintage.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/montanera-plegable.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Scooter Xaiomi",
+      "urlImg": "src/assets/imgs/xiaomi-scooter.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Scooter"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Renault R1",
+      "urlImg": "src/assets/imgs/renault-auto.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/monark.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/monark.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Peugeot R900",
+      "urlImg": "src/assets/imgs/peugeot-auto.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Bicicleta Monark",
+      "urlImg": "src/assets/imgs/monark.jpg",
+      "type": {
+        "icon": "bicicle-icon",
+        "id": "1",
+        "type": "Car"
+      }
+    }
+  ],
+  "users": [],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Drako Domingo",
+      "urlImage": "monark.jpg",
+      "phone": 99292912,
+      "rate": 4.2,
+      "ubication": "San Isidro"
+    },
+    {
+      "id": 2,
+      "name": "Lucía Ramos",
+      "urlImage": "monark-mirage-city-2.JPG",
+      "phone": 989123456,
+      "rate": 4.7,
+      "ubication": "Miraflores"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Peña",
+      "urlImage": "montanera-plegable.jpg",
+      "phone": 987654321,
+      "rate": 4.5,
+      "ubication": "La Molina"
+    },
+    {
+      "id": 4,
+      "name": "Ana Torres",
+      "urlImage": "renault-auto.jpg",
+      "phone": 912345678,
+      "rate": 4.8,
+      "ubication": "Surco"
+    },
+    {
+      "id": 5,
+      "name": "Jorge Méndez",
+      "urlImage": "scooter-urpi-oxie-pro.JPG",
+      "phone": 976543210,
+      "rate": 4.1,
+      "ubication": "Barranco"
+    },
+    {
+      "id": 6,
+      "name": "Diana Salas",
+      "urlImage": "monark-tricargo-venecia.JPG",
+      "phone": 965432198,
+      "rate": 4.3,
+      "ubication": "San Miguel"
+    },
+    {
+      "id": 7,
+      "name": "Fernando Ríos",
+      "urlImage": "peugeot-auto.jpg",
+      "phone": 998765432,
+      "rate": 4.6,
+      "ubication": "Pueblo Libre"
+    },
+    {
+      "id": 8,
+      "name": "María Paredes",
+      "urlImage": "segway-ninebot-f12-plus.JPG",
+      "phone": 934567890,
+      "rate": 4.4,
+      "ubication": "Chorrillos"
+    },
+    {
+      "id": 9,
+      "name": "Luis García",
+      "urlImage": "self-balancing.JPG",
+      "phone": 972345678,
+      "rate": 4.0,
+      "ubication": "Jesús María"
+    },
+    {
+      "id": 10,
+      "name": "Elena Castillo",
+      "urlImage": "sienna-m-26760.JPG",
+      "phone": 963214587,
+      "rate": 4.9,
+      "ubication": "Lince"
+    }
+  ]
+}

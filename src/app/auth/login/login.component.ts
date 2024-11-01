@@ -1,8 +1,10 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
+  FormsModule,
+  NgModel,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -14,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MyErrorStateMatcher } from '../register/register.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import { Role } from '../interfaces/IUser';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -25,6 +28,10 @@ import { AuthService } from '../services/auth.service';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    MatSlideToggleModule,
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -33,11 +40,13 @@ export class LoginComponent implements OnInit {
   authService = inject(AuthService);
   loginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  isOwner: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.loginForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
+      isOwner: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -46,11 +55,18 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
   toGoLogin(): void {
+    console.log('this login form', this.loginForm.value.isOwner, Role.Owner);
     this.authService.login({
       name: this.loginForm.value.name,
       id: '12412rfarr',
       jwtToken: '12412532513refqefq352',
+      role: this.loginForm.value.isOwner ? 'OWNER' : 'USER',
     });
+    // console.log('this user', this.authService.getUser());
     this.router.navigate(['/']);
+  }
+  selectUser(event: any): void {
+    this.isOwner = event.checked;
+    console.log('this', this.isOwner);
   }
 }

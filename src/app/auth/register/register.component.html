@@ -40,11 +40,22 @@
       <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
+    <mat-slide-toggle
+      color="primary"
+      class="example-margin"
+      [checked]="isOwner"
+    >
+      Quieres alquilar tu vehículo
+    </mat-slide-toggle>
     <div class="container-center mt-lg mb-lg" (click)="goToLogin()">
       <span> O Iniciar Sesión aquí</span>
     </div>
     <div class="container-center">
-      <button mat-flat-button color="primary" (click)="goToLogin()">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="sendRegister()"
+      >
         Regístrarse
       </button>
     </div>
