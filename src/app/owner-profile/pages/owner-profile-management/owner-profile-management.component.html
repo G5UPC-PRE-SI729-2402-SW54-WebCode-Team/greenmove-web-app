@@ -20,11 +20,11 @@
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> {{ "PROFILE.CARD.SUBSCRIPTION" | translate }} </span>
+          <span> Celular </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span> Plan Avanzado</span>
+            <span> {{ ownerEntrity.phone }}</span>
           </div>
         </div>
         <div class="container-col-start mb-md">
@@ -33,15 +33,6 @@
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
             <span class="text-center"> {{ ownerEntrity.streetAddress }} </span>
-          </div>
-        </div>
-
-        <div class="container-col-start">
-          <span> {{ "PROFILE.CARD.CALIFICATION" | translate }} </span>
-          <div
-            class="container-center-start bg-white radius-md ph-md pv-sm w-available"
-          >
-            <span class="text-center"> 4.8 </span>
           </div>
         </div>
       </div>
@@ -68,13 +59,29 @@
       <h1 class="text-center">{{ "PROFILEOWNER.SUBTITLE" | translate }}</h1>
       <div style="overflow-y: auto; height: 60vh">
         <mat-card appearance="outlined" *ngFor="let vehicle of vehicles">
-          <mat-card-header>
+          <mat-card-header style="margin: auto">
             <mat-card-title> {{ vehicle.name }}</mat-card-title>
             <mat-card-subtitle>{{ vehicle.status }}</mat-card-subtitle>
-            <mat-card-subtitle>{{ vehicle.type }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-actions>
-            <button mat-button (click)="deleteVehicle(vehicle)">
+          <mat-card-content
+            style="
+              margin: auto;
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <img [src]="vehicle.urlImage" alt="" style="width: 25%" />
+            <p><span> TIPO: </span> {{ convertWord(vehicle.type)   }}</p>
+            <p><span> VELOCIDAD: </span> {{ vehicle.speed }}</p>
+          </mat-card-content>
+          <mat-card-actions style="margin: auto">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="deleteVehicle(vehicle)"
+            >
               Eliminar
             </button>
           </mat-card-actions>

@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-row-center h-full" *ngIf="rentalEntrity">
+<div class="container-row-center h-full" *ngIf="reservationEntrity">
   <h1 class="title-text text-center">{{ "RENTAL.TITLE" | translate }}</h1>
   <div class="grid-repeat-fit mt-xxlg">
     <div class="p-md">
@@ -29,7 +29,7 @@
           >
             <div>
               <img
-                [src]="rentalEntrity.owner.urlImage"
+                [src]="reservationEntrity.owner.urlImage"
                 alt="img_vehicle"
                 style="
                   width: 70%;
@@ -40,12 +40,14 @@
               />
             </div>
             <div class="container-col-start">
-              <span> Nombre: {{ rentalEntrity.owner.name }} </span>
-              <span> Celular: {{ rentalEntrity.owner.phone }}</span>
+              <span> Nombre: {{ reservationEntrity.owner.fullName }} </span>
+              <span> Celular: {{ reservationEntrity.owner.phone }}</span>
             </div>
             <div class="container-col-start">
-              <span> Puntuación: {{ rentalEntrity.owner.rate }} </span>
-              <span> Ubicación: {{ rentalEntrity.owner.ubication }} </span>
+              <!-- <span> Puntuación: {{ reservationEntrity.owner.rate }} </span> -->
+              <span>
+                Ubicación: {{ reservationEntrity.owner.streetAddress }}
+              </span>
             </div>
           </div>
         </mat-expansion-panel>
@@ -63,7 +65,7 @@
           >
             <div class="container-start">
               <img
-                [src]="rentalEntrity.vehicle.urlImg"
+                [src]="reservationEntrity.vehicle.urlImg"
                 alt="img_vehicle"
                 style="
                   width: 70%;
@@ -74,14 +76,14 @@
               />
             </div>
             <div class="container-col-start">
-              <span> {{ rentalEntrity.vehicle.name }} </span>
-              <span> Velocidad: {{ rentalEntrity.vehicle.speed }} </span>
+              <span> {{ reservationEntrity.vehicle.name }} </span>
+              <span> Velocidad: {{ reservationEntrity.vehicle.name }} </span>
             </div>
             <div class="container-col-start">
-              <span> Batería: {{ rentalEntrity.vehicle.battery }} mah </span>
               <span>
-                Soporta hasta: {{ rentalEntrity.vehicle.support }} kg
+                Batería: {{ reservationEntrity.vehicle.status }} mah
               </span>
+              <span> Soporta hasta: 20 kg </span>
             </div>
           </div>
         </mat-expansion-panel>

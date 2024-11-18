@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   MatDialog,
   MatDialogActions,
@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-vehicle-dialog',
@@ -39,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    GoogleMapsModule,
   ],
   templateUrl: './vehicle-dialog.component.html',
   styleUrl: './vehicle-dialog.component.scss',
@@ -54,6 +56,9 @@ export class VehicleDialogComponent implements OnInit {
   selectedValue: any;
   vehicleForm: FormGroup;
   name: string;
+
+  map: google.maps.Map | undefined;
+  autocomplete: google.maps.places.Autocomplete | undefined;
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<VehicleDialogComponent>
@@ -63,6 +68,7 @@ export class VehicleDialogComponent implements OnInit {
       type: ['', Validators.required],
       name: ['', Validators.required],
       file: [],
+      speed: ['', Validators.required],
     });
   }
 

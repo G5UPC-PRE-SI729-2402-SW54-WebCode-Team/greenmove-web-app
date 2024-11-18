@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './public/pages/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
-import { PaymentManagmentComponent } from './payment/pages/payment-managment/payment-managment.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { LayoutComponent } from './public/layout/layout.component';
 
@@ -20,35 +19,28 @@ export const routes: Routes = [
         title: 'Home',
       },
       {
-        path: 'rental-manegement',
+        path: 'reservation-manegement/:id',
         loadComponent: () =>
           import(
-            './rental/pages/rental-management/rental-management.component'
-          ).then((m) => m.RentalManagementComponent),
+            './reservation/pages/reservation-management/reservation-management.component'
+          ).then((m) => m.ReservationManagementComponent),
         title: 'Home',
       },
       {
-        path: 'rental/successful',
+        path: 'reservation/successful/:id',
         loadComponent: () =>
           import(
-            './rental/pages/successful-booking/successful-booking.component'
+            './reservation/pages/successful-booking/successful-booking.component'
           ).then((m) => m.SuccessfulBookingComponent),
         title: 'Success',
       },
       {
         path: 'reserve-active',
         loadComponent: () =>
-          import('./rental/pages/active-reserve/active-reserve.component').then(
-            (m) => m.ActiveReserveComponent
-          ),
-        title: 'Success',
-      },
-      {
-        path: 'payment',
-        loadComponent: () =>
           import(
-            './payment/pages/payment-managment/payment-managment.component'
-          ).then((m) => m.PaymentManagmentComponent),
+            './reservation/pages/active-reserve/active-reserve.component'
+          ).then((m) => m.ActiveReserveComponent),
+        title: 'Success',
       },
       {
         path: 'profile',

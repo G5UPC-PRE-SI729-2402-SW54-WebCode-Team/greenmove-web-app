@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MatTableModule } from '@angular/material/table';
-import { IRental } from '../../../rental/interfaces/Rental';
+import { IRental } from '../../../reservation/interfaces/Rental';
 import { CommonModule, Location } from '@angular/common';
 import { NavBarComponent } from '../../../public/components/nav-bar/nav-bar.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -30,19 +30,6 @@ export interface IHistoryRental {
   hours: number;
 }
 
-const ELEMENT_DATA: IHistoryRental[] = [
-  { id: '1', dateStart: '24/09/24', dateEnd: '25/09/24', hours: 9 },
-  { id: '1', dateStart: '24/09/24', dateEnd: '25/09/24', hours: 9 },
-  { id: '1', dateStart: '24/09/24', dateEnd: '25/09/24', hours: 9 },
-  { id: '1', dateStart: '24/09/24', dateEnd: '25/09/24', hours: 9 },
-  { id: '1', dateStart: '24/09/24', dateEnd: '25/09/24', hours: 9 },
-];
-
-export class TableBasicExample {
-  displayedColumns: string[] = ['dateStart', 'dateEnd', 'hours'];
-  dataSource = ELEMENT_DATA;
-}
-
 @Component({
   selector: 'app-owner-profile-management',
   standalone: true,
@@ -63,31 +50,20 @@ export class OwnerProfileManagementComponent implements OnInit {
   authService = inject(AuthService);
   ownerService = inject(OwnerService);
   vehicleSerivce = inject(VehicleService);
-  tableBasicExample = new TableBasicExample();
-  displayedColumns = this.tableBasicExample.displayedColumns;
   titlePage: string = 'Perfil del usuario';
-  vehicles: VehicleEntity[] = [
-    {
-      id: '',
-      name: '',
-      status: VehicleStatus.AVAILABLE,
-      type: VehicleType.ELECTRICCAR,
-      urlImg: '',
-    },
-  ];
+  vehicles: any;
   ownerEntrity: any = [];
   vehicleNew: any;
   readonly dialog = inject(MatDialog);
 
   constructor(private router: Router, private location: Location) {
-    this.ownerService.getById(1).subscribe((response: any) => {
+    this.ownerService.getById(2).subscribe((response: any) => {
       this.ownerEntrity = response;
     });
-    this.ownerService
-      .getVehiclesByOwner(1)
-      .then((response: VehicleEntity[]) => {
-        this.vehicles = response;
-      });
+    this.ownerService.getVehiclesByOwner(2).then((response: any[]) => {
+      console.log('vehicles', response);
+      this.vehicles = response;
+    });
   }
   ngOnInit(): void {}
 
@@ -99,19 +75,39 @@ export class OwnerProfileManagementComponent implements OnInit {
     this.location.back();
   }
 
+  selectImage(p: string): string {
+    const images: { [key: string]: string } = {
+      ELECTRIC_BIKE:
+        'https://speed.pedegoelectricbikes.com/wp-content/uploads/2024/03/MOTO_BLU_3-4_layers-min.jpg',
+      ELECTRIC_SCOOTER:
+        'https://www.hiboy.com/cdn/shop/products/b58ce7b99582c961375527c3c6b27ebb_2048x2048.png?v=1725261690',
+      ELECTRIC_CAR:
+        'https://www.cnet.com/a/img/resize/ce957fcc2b9b41c24e068763b5da1eb20ecd04dd/hub/2023/06/07/a6cb0266-09c3-4543-9f7d-e23c14b996d2/volvo-ex30-2025-debut-vendor-7.jpg?auto=webp&width=1200',
+    };
+
+    return (
+      images[p] ||
+      'https://speed.pedegoelectricbikes.com/wp-content/uploads/2024/03/MOTO_BLU_3-4_layers-min.jpg'
+    );
+  }
   openDialog() {
     const dialogRef = this.dialog.open(VehicleDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       this.vehicleNew = result;
+      console.log(result);
       const vehicleRequest = {
         ...this.vehicleNew,
         status: VehicleStatus.AVAILABLE,
-        urlImage: '',
+        urlImage: this.selectImage(this.vehicleNew.type),
+        latitude: '-12.091745240454415',
+        longitude: '-77.04282929817016',
       };
-      this.ownerService
-        .addVehiclesByOwner(this.ownerEntrity.id, vehicleRequest)
-        .then(() => (this.vehicles = [...this.vehicles, vehicleRequest]));
+      if (result) {
+        this.ownerService
+          .addVehiclesByOwner(this.ownerEntrity.id, vehicleRequest)
+          .then(() => (this.vehicles = [...this.vehicles, vehicleRequest]));
+      }
     });
   }
 
@@ -119,11 +115,24 @@ export class OwnerProfileManagementComponent implements OnInit {
     const index = this.vehicles.findIndex(
       (value: any) => value.id === vehicle.id
     );
-    console.log(vehicle);
-    this.vehicleSerivce.delete(vehicle.id).subscribe((response) => {
-      this.vehicles = this.vehicles.splice(index, 1);
-    });
+
+    const deleteVehicles = [
+      ...this.vehicles.slice(0, index),
+      ...this.vehicles.slice(index + 1),
+    ];
+
+    this.vehicles = deleteVehicles;
   }
 
   addVehicle(): void {}
+
+  convertWord(p: string): string {
+    const word: { [key: string]: string } = {
+      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
+      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
+      ELECTRIC_CAR: 'CARRO ELECTRICO',
+    };
+
+    return word[p] || '';
+  }
 }

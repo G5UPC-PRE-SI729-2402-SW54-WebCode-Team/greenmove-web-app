@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MatTableModule } from '@angular/material/table';
-import { IRental } from '../../../rental/interfaces/Rental';
+import { IRental } from '../../../reservation/interfaces/Rental';
 import { Location } from '@angular/common';
 import { NavBarComponent } from '../../../public/components/nav-bar/nav-bar.component';
 import { TranslateModule } from '@ngx-translate/core';

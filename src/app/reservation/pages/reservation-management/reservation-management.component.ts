@@ -7,11 +7,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { RentalService } from '../../services/rental.service';
+import { ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-rental-management',
+  selector: 'app-reservation-management',
   standalone: true,
   imports: [
     NavBarComponent,
@@ -20,12 +20,12 @@ import { CommonModule } from '@angular/common';
     MatExpansionModule,
     MatProgressBarModule,
     MapComponent,
-    CommonModule
+    CommonModule,
   ],
-  templateUrl: './rental-management.component.html',
-  styleUrl: './rental-management.component.scss',
+  templateUrl: './reservation-management.component.html',
+  styleUrl: './reservation-management.component.scss',
 })
-export class RentalManagementComponent implements OnInit {
+export class ReservationManagementComponent implements OnInit {
   readonly panelOpenState = signal(false);
   owners = [
     {
@@ -48,12 +48,12 @@ export class RentalManagementComponent implements OnInit {
     lng: -77.03824808525513,
   };
 
-  rentalService = inject(RentalService);
-  rentalEntrity: any;
+  reservationService = inject(ReservationService);
+  reservationEntrity: any;
 
   ngOnInit(): void {
-    this.rentalEntrity = this.rentalService
-      .getById(1)
-      .subscribe((response: any) => (this.rentalEntrity = response[0]));
+    this.reservationService.getById(10).subscribe((response: any) => {
+      this.reservationEntrity = response;
+    });
   }
 }
