@@ -1,0 +1,20 @@
+<div class="container-row-center h-full">
+  <h1 class="title-text text-center">
+    {{ "OWNERMANEGEMENT.TITLE" | translate }}
+  </h1>
+  <div class="grid-repeat-fit mt-xxlg">
+    <div class="container-col-center">
+      <img src="../../../../assets/imgs/avatar.jpeg" alt="" />
+      <div class="container-col-center mt-lg" *ngIf="reservationsbyOwner">
+        <h2>! WOW TUS VEHÍCULOS SON MUY POPULARES !</h2>
+        <h3 class="text-center">
+          Tus vehículos tienen en total {{ reservationsbyOwner.length }} viajes
+        </h3>
+        <h3>
+          Ganaste aproximadamente {{ reservationsbyOwner.length * 8.23 }} soles
+        </h3>
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,10 +4,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { MatTableModule } from '@angular/material/table';
-import { IRental } from '../../../rental/interfaces/Rental';
+import { IRental } from '../../../reservation/interfaces/Rental';
 import { Location } from '@angular/common';
 import { NavBarComponent } from '../../../public/components/nav-bar/nav-bar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { TenantService } from '../../services/tenant.service';
 
 export interface IHistoryRental {
   id: string;
@@ -44,11 +45,17 @@ export class TableBasicExample {
 })
 export class ProfileManagmentComponent implements OnInit {
   authService = inject(AuthService);
+  tenantService = inject(TenantService);
   tableBasicExample = new TableBasicExample();
   displayedColumns = this.tableBasicExample.displayedColumns;
   titlePage: string = 'Perfil del usuario';
+  tenantEntrity: any;
   constructor(private router: Router, private location: Location) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.tenantService
+      .getById(1)
+      .subscribe((response) => (this.tenantEntrity = response));
+  }
 
   goToBookingActive(): void {
     this.router.navigate(['/reserve-active']);

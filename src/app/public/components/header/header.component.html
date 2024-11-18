@@ -27,7 +27,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="goToSuscriptions()">
+        <button mat-menu-item (click)="goToSuscriptions()" *ngIf="isUserRole()">
           <mat-icon>subscriptions</mat-icon>
           <span>Subscribciones</span>
         </button>
@@ -43,6 +43,7 @@
         mat-icon-button
         aria-label="suscription"
         (click)="goToSuscriptions()"
+        *ngIf="isUserRole()"
       >
         <mat-icon>subscriptions</mat-icon>
       </button>

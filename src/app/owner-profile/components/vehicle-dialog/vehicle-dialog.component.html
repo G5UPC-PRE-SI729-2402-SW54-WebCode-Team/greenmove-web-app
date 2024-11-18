@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Agrega un vehículo</h2>
+<mat-dialog-content>
+  <h4>Añade el vehíuclo que deseas alquilar.</h4>
+  <form class="form-dialog" [formGroup]="vehicleForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Ingrese el nombre" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Seleccione una opción</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{ option.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Velocidad</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese la velocidad"
+        formControlName="speed"
+      />
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>File matInput</mat-label>
+      <button mat-icon-button matPrefix (click)="f_input.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+      <input type="text" readonly matInput formControlName="file" />
+      <input
+        type="file"
+        hidden
+        accept=".jpg, .jpeg"
+        #f_input
+        (change)="onFileSelected($event)"
+      />
+      <mat-error>this field is required</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+  <button mat-raised-button color="primary" (click)="sendAddVehicle()">
+    Agregar
+  </button>
+</mat-dialog-actions>

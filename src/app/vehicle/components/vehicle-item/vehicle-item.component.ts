@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
@@ -13,15 +13,13 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class VehicleItemComponent implements OnInit {
   @Input() vehicle: any;
+  @Output() vehicleClicked: any = new EventEmitter<any>();
+
   user: any;
   suscription = true;
   constructor(private router: Router) {}
   ngOnInit(): void {}
-  goTo() {
-    if (this.suscription) {
-      this.router.navigate(['/rental/successful']);
-    } else {
-      this.router.navigate(['/not-suscriptions']);
-    }
+  selectVehicle() {
+    this.vehicleClicked.emit(this.vehicle);
   }
 }

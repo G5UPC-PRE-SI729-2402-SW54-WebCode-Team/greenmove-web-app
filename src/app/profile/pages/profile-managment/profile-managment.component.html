@@ -1,12 +1,12 @@
 <app-nav-bar [title]="'PROFILE.TITLE' | translate"></app-nav-bar>
 <div class="profile-management-container">
-  <div class="container-between-start">
+  <div class="grid-repeat-fit gap-xl">
     <div class="container-col-center gap-xl">
       <div class="image-profile-container p-md">
         <img
           class="image-profile"
-          src="https://s3-alpha-sig.figma.com/img/06f8/ffd2/8860ece6968355ec502c7afe0b216096?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bT3y2UxyKV9SvnAUI0HUlP4KEAsULMNTK0DHfJhL5b7SDu4pMHufvz3iLzNFgP~FWV3tyTC98Bhg577Mo~HmH8Ez~szbH96fVCIM9EMcBSZ8p0bbUCaPgd8i~kpqA-R1UVBpQc0Sa2CIYE16p12uQ1fnB944B6e7f9ciiFjDkGidBpMIfmR4SeVMEgxewmliNOLQBTLwgmPAr1f-gsaxZzJAGls~t0VJ9eoghKiQkgcwJL9V2lsjOHmQDW~-zBH9-JnUZCa4ihAOlp1smGXzzCN8D--Mb6NIYFeELesQZesD-nshIO4q2ly-GYHxn4juHzsNEzGfaxpdWspFi4CJhg__"
           alt="image__profile"
+          [src]="tenantEntrity.urlImage"
         />
       </div>
       <div class="bg-primary ph-xl pv-md w-available">
@@ -15,7 +15,7 @@
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span> Enrique Villón </span>
+            <span> {{ this.tenantEntrity.name }} </span>
           </div>
         </div>
         <div class="container-col-start mb-md">
@@ -31,7 +31,7 @@
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span class="text-center"> San Isidro </span>
+            <span class="text-center"> {{ this.tenantEntrity.phone }} </span>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div>
-      <h1>Historial de viajes</h1>
+      <h1 class="text-center">Historial de viajes</h1>
       <table
         mat-table
         [dataSource]="tableBasicExample.dataSource"

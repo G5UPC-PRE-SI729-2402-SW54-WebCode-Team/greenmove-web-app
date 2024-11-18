@@ -1,4 +1,8 @@
 <div class="vehicle-managment-container">
   <h1 class="title-text text-center">{{ "VEHICLE.TITLE" | translate }}</h1>
-  <app-vehicle-list></app-vehicle-list>
+
+  <app-vehicle-list
+    [vehicles]="vehicleListAvailable"
+    (vehicleSelected)="onVehicleSelected($event)"
+  ></app-vehicle-list>
 </div>

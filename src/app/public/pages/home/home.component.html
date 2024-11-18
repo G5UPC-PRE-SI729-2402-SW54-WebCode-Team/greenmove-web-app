@@ -7,5 +7,11 @@
       }}
     </span>
   </div>
-  <app-vehicle-management></app-vehicle-management>
+
+  <app-vehicle-management
+    *ngIf="user.getUser()?.role === 'USER'"
+  ></app-vehicle-management>
+  <app-owner-management
+    *ngIf="user.getUser()?.role === 'OWNER'"
+  ></app-owner-management>
 </div>

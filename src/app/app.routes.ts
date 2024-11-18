@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './public/pages/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
-import { PaymentManagmentComponent } from './payment/pages/payment-managment/payment-managment.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { LayoutComponent } from './public/layout/layout.component';
 
@@ -20,27 +19,42 @@ export const routes: Routes = [
         title: 'Home',
       },
       {
-        path: 'rental/successful',
+        path: 'reservation-manegement/:id',
         loadComponent: () =>
           import(
-            './rental/pages/successful-booking/successful-booking.component'
+            './reservation/pages/reservation-management/reservation-management.component'
+          ).then((m) => m.ReservationManagementComponent),
+        title: 'Home',
+      },
+      {
+        path: 'reservation/successful/:id',
+        loadComponent: () =>
+          import(
+            './reservation/pages/successful-booking/successful-booking.component'
           ).then((m) => m.SuccessfulBookingComponent),
         title: 'Success',
       },
       {
         path: 'reserve-active',
         loadComponent: () =>
-          import('./rental/pages/active-reserve/active-reserve.component').then(
-            (m) => m.ActiveReserveComponent
-          ),
+          import(
+            './reservation/pages/active-reserve/active-reserve.component'
+          ).then((m) => m.ActiveReserveComponent),
         title: 'Success',
       },
       {
-        path: 'payment',
+        path: 'profile',
         loadComponent: () =>
           import(
-            './payment/pages/payment-managment/payment-managment.component'
-          ).then((m) => m.PaymentManagmentComponent),
+            './profile/pages/profile-managment/profile-managment.component'
+          ).then((m) => m.ProfileManagmentComponent),
+      },
+      {
+        path: 'profile-owner',
+        loadComponent: () =>
+          import(
+            './owner-profile/pages/owner-profile-management/owner-profile-management.component'
+          ).then((m) => m.OwnerProfileManagementComponent),
       },
       {
         path: 'profile',
@@ -62,6 +76,13 @@ export const routes: Routes = [
           import(
             './suscription/pages/not-suscription/not-suscription.component'
           ).then((m) => m.NotSuscriptionComponent),
+      },
+      {
+        path: 'contact',
+        loadComponent: () =>
+          import('./public/pages/contact/contact.component').then(
+            (m) => m.ContactComponent
+          ),
       },
     ],
     canActivate: [AuthGuard],

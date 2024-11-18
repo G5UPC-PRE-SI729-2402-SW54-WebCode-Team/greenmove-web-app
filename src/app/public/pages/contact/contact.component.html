@@ -1,0 +1,26 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-col-center h-full">
+  <h3>Reporta un problema</h3>
+  <form action="" [formGroup]="formContact" class="flex col">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Ingrese su nombre" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ingrese su nombre" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="Ingrese su nombre" formControlName="phone" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Comentario</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese su nombre"
+        formControlName="comment"
+      />
+    </mat-form-field>
+  </form>
+</div>
