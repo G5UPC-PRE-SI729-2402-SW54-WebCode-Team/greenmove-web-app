@@ -12,10 +12,12 @@ import { OwnerService } from '../../services/owner.service';
   styleUrl: './owner-management.component.scss',
 })
 export class OwnerManagementComponent implements OnInit {
-  ngOnInit(): void {}
   constructor(private ownerService: OwnerService) {}
-
-  ownerDetail() {
-    
+  ngOnInit(): void {
+    this.ownerService
+      .getById(1)
+      .subscribe((response) => console.log('response', response));
   }
+
+  ownerDetail() {}
 }

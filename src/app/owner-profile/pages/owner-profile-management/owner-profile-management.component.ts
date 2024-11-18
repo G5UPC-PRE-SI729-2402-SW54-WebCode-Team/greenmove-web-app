@@ -11,12 +11,18 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { VehicleDialogComponent } from '../../components/vehicle-dialog/vehicle-dialog.component';
+import { ChangeDetectorRef } from '@angular/core';
+
 import {
   MAT_DIALOG_DATA,
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
 import { OwnerService } from '../../../owner/services/owner.service';
+import { VehicleService } from '../../../vehicle/services/vehicle.service';
+import { VehicleStatus } from '../../../vehicle/models/vehicle-status.enum';
+import { VehicleEntity } from '../../../vehicle/models/vehicle.entity';
+import { VehicleType } from '../../../vehicle/models/vehicle-type.enum';
 export interface IHistoryRental {
   id: string;
   dateStart: string;
@@ -56,17 +62,32 @@ export class TableBasicExample {
 export class OwnerProfileManagementComponent implements OnInit {
   authService = inject(AuthService);
   ownerService = inject(OwnerService);
+  vehicleSerivce = inject(VehicleService);
   tableBasicExample = new TableBasicExample();
   displayedColumns = this.tableBasicExample.displayedColumns;
   titlePage: string = 'Perfil del usuario';
-  vehicles = [10, 10, 10, 20, 20, 20, 30, 40];
+  vehicles: VehicleEntity[] = [
+    {
+      id: '',
+      name: '',
+      status: VehicleStatus.AVAILABLE,
+      type: VehicleType.ELECTRICCAR,
+      urlImg: '',
+    },
+  ];
   ownerEntrity: any = [];
+  vehicleNew: any;
   readonly dialog = inject(MatDialog);
 
   constructor(private router: Router, private location: Location) {
+    this.ownerService.getById(1).subscribe((response: any) => {
+      this.ownerEntrity = response;
+    });
     this.ownerService
-      .getById(1)
-      .subscribe((response: any) => (this.ownerEntrity = response[0]));
+      .getVehiclesByOwner(1)
+      .then((response: VehicleEntity[]) => {
+        this.vehicles = response;
+      });
   }
   ngOnInit(): void {}
 
@@ -78,12 +99,31 @@ export class OwnerProfileManagementComponent implements OnInit {
     this.location.back();
   }
 
-  addVehicle(): void {}
   openDialog() {
     const dialogRef = this.dialog.open(VehicleDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      this.vehicleNew = result;
+      const vehicleRequest = {
+        ...this.vehicleNew,
+        status: VehicleStatus.AVAILABLE,
+        urlImage: '',
+      };
+      this.ownerService
+        .addVehiclesByOwner(this.ownerEntrity.id, vehicleRequest)
+        .then(() => (this.vehicles = [...this.vehicles, vehicleRequest]));
     });
   }
+
+  deleteVehicle(vehicle: any) {
+    const index = this.vehicles.findIndex(
+      (value: any) => value.id === vehicle.id
+    );
+    console.log(vehicle);
+    this.vehicleSerivce.delete(vehicle.id).subscribe((response) => {
+      this.vehicles = this.vehicles.splice(index, 1);
+    });
+  }
+
+  addVehicle(): void {}
 }

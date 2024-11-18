@@ -4,9 +4,9 @@ import { BaseService } from '../../shared/services/base-service.service';
 @Injectable({
   providedIn: 'root',
 })
-export class RentalService extends BaseService<any> {
+export class ReservationService extends BaseService<any> {
   constructor() {
     super();
-    this.resourceEndPoint = '/rentals';
+    this.resourceEndPoint = '/reservations';
   }
 }

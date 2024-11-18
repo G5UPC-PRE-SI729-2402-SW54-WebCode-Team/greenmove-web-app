@@ -85,6 +85,13 @@ export const routes: Routes = [
             './suscription/pages/not-suscription/not-suscription.component'
           ).then((m) => m.NotSuscriptionComponent),
       },
+      {
+        path: 'contact',
+        loadComponent: () =>
+          import('./public/pages/contact/contact.component').then(
+            (m) => m.ContactComponent
+          ),
+      },
     ],
     canActivate: [AuthGuard],
   },

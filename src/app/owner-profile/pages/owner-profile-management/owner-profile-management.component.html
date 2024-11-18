@@ -16,7 +16,7 @@
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span> Enrique Villón </span>
+            <span> {{ ownerEntrity.fullName }} </span>
           </div>
         </div>
         <div class="container-col-start mb-md">
@@ -32,7 +32,7 @@
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span class="text-center"> San Isidro </span>
+            <span class="text-center"> {{ ownerEntrity.streetAddress }} </span>
           </div>
         </div>
 
@@ -64,16 +64,19 @@
         </button>
       </div>
     </div>
-    <div class="flex col gap-xl alig-center">
-      <h1 class="text-center"> {{ "PROFILEOWNER.SUBTITLE" | translate }}</h1>
+    <div class="flex col gap-xl alig-center" *ngIf="vehicles">
+      <h1 class="text-center">{{ "PROFILEOWNER.SUBTITLE" | translate }}</h1>
       <div style="overflow-y: auto; height: 60vh">
         <mat-card appearance="outlined" *ngFor="let vehicle of vehicles">
           <mat-card-header>
-            <mat-card-title> Scooter Xiaomi i90</mat-card-title>
-            <mat-card-subtitle>Herding group</mat-card-subtitle>
+            <mat-card-title> {{ vehicle.name }}</mat-card-title>
+            <mat-card-subtitle>{{ vehicle.status }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ vehicle.type }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-button>Learn More</button>
+            <button mat-button (click)="deleteVehicle(vehicle)">
+              Eliminar
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>

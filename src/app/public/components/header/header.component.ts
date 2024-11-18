@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit {
   authService = inject(AuthService);
   constructor(private router: Router, private translate: TranslateService) {
     this.windowWidth = window.innerWidth;
-    console.log(this.windowWidth);
   }
   @HostListener('window:resize', ['$event'])
   ngOnInit(): void {}
@@ -63,7 +62,6 @@ export class HeaderComponent implements OnInit {
     this.translate.use(lang);
   }
   isUserRole(): boolean {
-    console.log(this.authService.getUser().role === 'USER');
     return this.authService.getUser().role === 'USER';
   }
 
