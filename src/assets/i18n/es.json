@@ -26,7 +26,8 @@
       "ELECTRIC_CAR": "Carro electrico",
       "ON_TRIP": "En viaje",
       "AVAILABLE": "Disponible",
-      "ON_MAINTENANCE": "En mantenimiento"
+      "ON_MAINTENANCE": "En mantenimiento",
+      "BUTTON": "RESERVA"
     }
   },
   "HISTORY_RENTALS": {
