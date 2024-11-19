@@ -4,7 +4,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import {  environment } from '../../../environments/enviroment';
+import { environment } from '../../../environments/enviroment.prod';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
