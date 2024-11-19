@@ -3,15 +3,16 @@
     <span class="title-text">
       {{
         "WELCOME"
-          | translate : { user: user.getUser()?.name?.toLocaleUpperCase() }
+          | translate : { user: user.getUser()?.username?.toLocaleUpperCase() }
       }}
     </span>
   </div>
-
-  <app-vehicle-management
-    *ngIf="user.getUser()?.role === 'USER'"
-  ></app-vehicle-management>
-  <app-owner-management
-    *ngIf="user.getUser()?.role === 'OWNER'"
-  ></app-owner-management>
+  <ng-container *ngIf="profile">
+    <app-vehicle-management
+      *ngIf="profile.roles[0] === 'ROLE_TENANT'"
+    ></app-vehicle-management>
+    <app-owner-management
+      *ngIf="profile.roles[0] === 'ROLE_OWNER'"
+    ></app-owner-management>
+  </ng-container>
 </div>

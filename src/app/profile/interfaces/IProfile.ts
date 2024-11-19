@@ -1,4 +1,4 @@
-import { IRental } from '../../rental/interfaces/Rental';
+import { IRental } from '../../reservation/interfaces/Rental';
 import { ISuscription } from '../../suscription/interfaces/ISuscription';
 
 export interface IProfile {

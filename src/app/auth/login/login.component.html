@@ -15,19 +15,6 @@
       }
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input
-        type="email"
-        matInput
-        formControlName="email"
-        [errorStateMatcher]="matcher"
-        placeholder="Ingresa tu email"
-      />
-      @if (loginForm.get('email')?.invalid ) {
-      <mat-error>Ingresa el <strong> email </strong> correcto</mat-error>
-      }
-    </mat-form-field>
-    <mat-form-field appearance="outline">
       <mat-label>Contraseña</mat-label>
       <input
         type="password"
@@ -40,9 +27,6 @@
       <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
-    <mat-slide-toggle formControlName="isOwner" color="primary">
-      Eres owner de vehículos
-    </mat-slide-toggle>
 
     <div class="container-center mt-lg mb-lg" (click)="toGoRegister()">
       <span> Registrate aquí.</span>

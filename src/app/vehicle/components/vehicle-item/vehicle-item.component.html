@@ -3,21 +3,21 @@
     <mat-card-title>{{ vehicle.name }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <img mat-card-md-image [src]="vehicle.urlImg" alt="{{ vehicle.title }}" />
+    <img mat-card-md-image [src]="vehicle.urlImage" alt="{{ vehicle.title }}" />
     <div class="ml-md">
       <div class="">
         <span> {{ "VEHICLE.CARD.SPEED" | translate }}</span>
-        <span> : 30 km/h</span>
+        <span> : {{ vehicle.speed }} </span>
       </div>
       <div>
-        <span> {{ "VEHICLE.CARD.DISTANCE" | translate }}</span>
-        <span> : 1.2km </span>
+        <span> {{ "Tipo" | translate }}</span>
+        <span> : {{ convertWord(vehicle.type) }} </span>
       </div>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary" (click)="goTo()">
-      {{ "VEHICLE.CARD.BUTTON" | translate }}
+    <button mat-flat-button color="primary" (click)="selectVehicle()">
+      RESERVA
     </button>
   </mat-card-actions>
 </mat-card>

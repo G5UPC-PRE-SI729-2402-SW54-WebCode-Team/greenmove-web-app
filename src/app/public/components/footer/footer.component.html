@@ -1,9 +1,13 @@
 <mat-toolbar color="primary">
   <div class="container-between w-full">
-    <span class="cursor-pointer"> {{ "FOOTER.ABOUT" | translate }} </span>
-    <span class="cursor-pointer">
+    <span class="cursor-pointer" (click)="redirectAbout()">
+      {{ "FOOTER.ABOUT" | translate }}
+    </span>
+    <span class="cursor-pointer" (click)="redirectProblem()">
       {{ "FOOTER.REPORT_PROBLEM" | translate }}</span
     >
-    <span class="cursor-pointer">{{ "FOOTER.SAFETY_TIPS" | translate }} </span>
+    <span class="cursor-pointer" (click)="redirectTips()"
+      >{{ "FOOTER.SAFETY_TIPS" | translate }}
+    </span>
   </div>
 </mat-toolbar>
