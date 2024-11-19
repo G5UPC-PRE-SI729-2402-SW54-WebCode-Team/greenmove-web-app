@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.loginForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(6)]],
+      name: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
   toGoLogin(): void {
-    console.log('this login form', this.loginForm.value.isOwner, Role.Owner);
     this.authService
       .login({
         username: this.loginForm.value.name,
@@ -67,6 +66,5 @@ export class LoginComponent implements OnInit {
   }
   selectUser(event: any): void {
     this.isOwner = event.checked;
-    console.log('this', this.isOwner);
   }
 }

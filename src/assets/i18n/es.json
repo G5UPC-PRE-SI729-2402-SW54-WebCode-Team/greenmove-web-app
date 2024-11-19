@@ -6,7 +6,8 @@
       "NAME_COMPLETE": "Nombre completo",
       "SUBSCRIPTION": "Subscrición",
       "UBICATION": "Ubicación",
-      "CALIFICATION": "Calificación"
+      "CALIFICATION": "Calificación",
+      "PHONE": "Celular"
     },
     "BUTTONS": {
       "CONSULT_ACTIVE_RESERVE": "Consulta reserva activa",
@@ -18,7 +19,14 @@
     "CARD": {
       "SPEED": "Velocidad",
       "DISTANCE": "Distancia",
-      "BOOKING": "Reservar"
+      "BOOKING": "Reservar",
+      "TYPE": "Tipo",
+      "ELECTRIC_BIKE": "Bicicleta electrica",
+      "ELECTRIC_SCOOTER": "Scooter electrica",
+      "ELECTRIC_CAR": "Carro electrico",
+      "ON_TRIP": "En viaje",
+      "AVAILABLE": "Disponible",
+      "ON_MAINTENANCE": "En mantenimiento"
     }
   },
   "HISTORY_RENTALS": {
@@ -49,17 +57,29 @@
     "TITLE": "Gestión del propietario",
     "SUBTITLE": "Vehículos activos",
     "CARD": {
-      "NAME_COMPLETE": "Nombre completo",
+      "NAME_COMPLETE": "Nombre ",
       "SUBSCRIPTION": "Subscription",
-      "UBICATION": "Ubicación",
-      "CALIFICATION": "Calificación"
+      "ADDRESS": "Dirección",
+      "PHONE": "Celular",
+      "CALIFICATION": "Calificación",
+      "TYPE": "Tipo"
     },
     "BUTTONS": {
       "UPLOAD_VEHICLE": "Añade un vehículo",
       "SING_OUT": "Cerrar Sesión"
-    }
+    },
+    "BANNER": "! WOW TUS VEHÍCULOS SON MUY POPULARES!",
+    "TRIPS": "Tus vehículos tienen en total {{count}} viajes",
+    "WIN": "Tu ganaste aproximadamente"
   },
   "OWNERMANEGEMENT": {
     "TITLE": "Administrador del propietario"
+  },
+  "RESERVATION": {
+    "TITLE_OWNER": "Información del owner",
+    "TITLE_VEHICLE": "Información del vehículo",
+    "TIME": "Tiempo de alquiler: {{time}} horas en total",
+    "SUCCESSFULL": "Tu reserva fue exitosa",
+    "MANAG_BUTTON": "Gestiona tu reserva aquí"
   }
 }

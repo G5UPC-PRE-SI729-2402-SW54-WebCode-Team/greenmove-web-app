@@ -73,11 +73,9 @@ export class VehicleDialogComponent implements OnInit {
   }
 
   sendAddVehicle(): void {
-    console.log('this.vehicleform', this.vehicleForm.value);
     this.dialogRef.close(this.vehicleForm.value);
   }
   onFileSelected(event: Event): void {
-    console.log('event', event.target);
     const input: any = event.target;
     const file = input.files[0];
     this.vehicleForm.get('file')?.setValue(file.name);

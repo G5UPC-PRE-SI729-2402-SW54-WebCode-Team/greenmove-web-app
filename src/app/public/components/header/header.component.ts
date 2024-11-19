@@ -62,7 +62,6 @@ export class HeaderComponent implements OnInit {
     this.translate.use(lang);
   }
   isUserRole(): boolean {
-    console.log(this.authService.getUser());
     return this.authService.getUser().role === 'ROLE_TENANT';
   }
 

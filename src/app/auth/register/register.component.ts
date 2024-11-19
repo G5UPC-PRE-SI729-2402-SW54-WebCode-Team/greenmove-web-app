@@ -61,10 +61,10 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.city = new FormControl('');
     this.registerForm = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.minLength(6)]],
+      userName: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      firstName: ['', [Validators.required, Validators.minLength(6)]],
-      lastName: ['', [Validators.required, Validators.minLength(6)]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       urlImage: [''],
       city: [''],
@@ -75,7 +75,6 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['./login']);
   }
   sendRegister() {
-    console.log('form', this.registerForm.value);
     const request = {
       username: this.registerForm.value['userName'],
       password: this.registerForm.value['password'],
@@ -110,7 +109,6 @@ export class RegisterComponent implements OnInit {
     });
   }
   onFileSelected(event: Event): void {
-    console.log('event', event.target);
     const input: any = event.target;
     const file = input.files[0];
     this.registerForm.get('urlImage')?.setValue(file.name);

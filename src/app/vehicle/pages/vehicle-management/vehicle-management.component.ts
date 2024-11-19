@@ -31,9 +31,7 @@ export class VehicleManagementComponent implements OnInit {
   }
 
   reserveVehicle(): void {
-    this.reservationService
-      .create({})
-      .then((response: any) => console.log(response));
+    this.reservationService.create({}).then((response: any) => response);
   }
 
   onVehicleSelected(vehicle: any) {
@@ -47,7 +45,6 @@ export class VehicleManagementComponent implements OnInit {
         tenantId: idRole,
       })
       .subscribe((response: any) => {
-        console.log(response);
         this.entrityReservation = response;
         this.router.navigate([`/reservation/successful/`, response.id]);
       });

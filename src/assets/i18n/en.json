@@ -6,7 +6,8 @@
       "NAME_COMPLETE": "Name",
       "SUBSCRIPTION": "Subscription",
       "UBICATION": "Ubication",
-      "CALIFICATION": "Calification"
+      "CALIFICATION": "Calification",
+      "PHONE": "Phone"
     },
     "BUTTONS": {
       "CONSULT_ACTIVE_RESERVE": "Active reserve inquiry",
@@ -18,7 +19,14 @@
     "CARD": {
       "SPEED": "Speed",
       "DISTANCE": "Distance",
-      "BUTTON": "Reserve"
+      "BUTTON": "Reserve",
+      "TYPE": "Type",
+      "ELECTRIC_BIKE": "Electric Bike",
+      "ELECTRIC_SCOOTER": "Electric Scooter",
+      "ELECTRIC_CAR": "Electric car",
+      "ON_TRIP": "On trip",
+      "AVAILABLE": "Available",
+      "ON_MAINTENANCE": "On maintenance"
     }
   },
   "HISTORY_RENTALS": {
@@ -45,15 +53,33 @@
   "PROFILEOWNER": {
     "TITLE": "Owner Manegement",
     "SUBTITLE": "Avariables vehicles",
+    "CARD": {
+      "NAME_COMPLETE": "Name",
+      "SUBSCRIPTION": "Subscription",
+      "ADDRESS": "Address",
+      "PHONE": "Phone",
+      "CALIFICATION": "Calification",
+      "TYPE": "Type"
+    },
     "BUTTONS": {
       "UPLOAD_VEHICLE": "Add vehicle",
       "SING_OUT": "Log Out"
-    }
+    },
+    "BANNER": "! WOW YOUR VEHICLES ARE VERY POPULAR!",
+    "TRIPS": "Your vehicles have a total of {{count}} trips",
+    "WIN": "You earned approximately"
   },
   "OWNERMANEGEMENT": {
     "TITLE": "Owner Manegement"
   },
   "RENTAL": {
     "TITLE": "Trip Manegement"
+  },
+  "RESERVATION": {
+    "TITLE_OWNER": "Owner information",
+    "TITLE_VEHICLE": "Vehicle information",
+    "TIME": "Rental time: {{time}} hours total",
+    "SUCCESSFULL": "Your reservation has been successful",
+    "MANAG_BUTTON": "Manage your reservation here"
   }
 }

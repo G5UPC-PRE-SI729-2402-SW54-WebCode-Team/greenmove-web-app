@@ -3,7 +3,7 @@ import { NavBarComponent } from '../../../public/components/nav-bar/nav-bar.comp
 import { ChangeDetectionStrategy, signal } from '@angular/core';
 import { MapComponent } from '@maplibre/ngx-maplibre-gl';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -55,10 +55,13 @@ export class ReservationManagementComponent implements OnInit {
   idReservation: any;
   reservationService = inject(ReservationService);
   reservationEntrity: any;
-  constructor(private activedRouter: ActivatedRoute, private router: Router) {
+  constructor(
+    private activedRouter: ActivatedRoute,
+    private router: Router,
+    private translate: TranslateService
+  ) {
     this.activedRouter.params.subscribe((params) => {
       this.idReservation = params['id'];
-      console.log(this.idReservation);
     });
   }
   ngOnInit(): void {
@@ -80,12 +83,11 @@ export class ReservationManagementComponent implements OnInit {
   }
 
   convertWord(p: string): string {
-    const word: { [key: string]: string } = {
-      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
-      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
-      ELECTRIC_CAR: 'CARRO ELECTRICO',
-    };
+    let translatedWord = '';
+    this.translate.get(`VEHICLE.CARD.${p}`).subscribe((translation) => {
+      translatedWord = translation || '';
+    });
 
-    return word[p] || '';
+    return translatedWord;
   }
 }

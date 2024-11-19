@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-vehicle-item',
@@ -17,18 +17,26 @@ export class VehicleItemComponent implements OnInit {
 
   user: any;
   suscription = true;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService) {}
   ngOnInit(): void {}
   selectVehicle() {
     this.vehicleClicked.emit(this.vehicle);
   }
   convertWord(p: string): string {
-    const word: { [key: string]: string } = {
-      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
-      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
-      ELECTRIC_CAR: 'CARRO ELECTRICO',
-    };
+    let translatedWord = '';
+    this.translate.get(`VEHICLE.CARD.${p}`).subscribe((translation) => {
+      translatedWord = translation || '';
+    });
 
-    return word[p] || '';
+    return translatedWord;
+  }
+
+  convertState(p: string) {
+    let translatedWord = '';
+    this.translate.get(`VEHICLE.CARD.${p}`).subscribe((translation) => {
+      translatedWord = translation || '';
+    });
+
+    return translatedWord;
   }
 }

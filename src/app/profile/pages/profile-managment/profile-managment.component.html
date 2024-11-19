@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> {{ "PROFILE.CARD.UBICATION" | translate }} </span>
+          <span> {{ "PROFILE.CARD.PHONE" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -46,7 +46,7 @@
       </div>
 
       <div class="flex col gap-xl">
-        <button mat-fab extended color="primary" (click)="goToBookingActive()">
+        <button mat-fab extended color="primary" (click)="goToActiveReserve()">
           <mat-icon> book_online</mat-icon>
           {{ "PROFILE.BUTTONS.CONSULT_ACTIVE_RESERVE" | translate }}
         </button>
@@ -64,7 +64,9 @@
       </div>
     </div>
     <div>
-      <h1 class="text-center">Historial de viajes</h1>
+      <h1 class="text-center">
+        {{ "HISTORY_RENTALS.TITLE" | translate }}
+      </h1>
       <table
         mat-table
         [dataSource]="tableBasicExample.dataSource"

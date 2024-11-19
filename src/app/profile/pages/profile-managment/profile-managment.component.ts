@@ -54,6 +54,7 @@ export class ProfileManagmentComponent implements OnInit {
   titlePage: string = 'Perfil del usuario';
   tenantEntrity: any;
   reservationsEntrity: any;
+  reservationActive: any;
   constructor(private router: Router, private location: Location) {}
   ngOnInit(): void {
     const idRole = JSON.parse(
@@ -67,6 +68,9 @@ export class ProfileManagmentComponent implements OnInit {
       .getReservationsByTenent(idRole)
       .then((response: any) => {
         this.reservationsEntrity = response;
+        this.reservationActive = response.filter(
+          (value: any) => value.status === 'ACTIVE'
+        )[0];
       });
   }
 
@@ -86,5 +90,11 @@ export class ProfileManagmentComponent implements OnInit {
     };
 
     return word[p] || '';
+  }
+  goToActiveReserve() {
+    this.router.navigate([
+      '/reservation-manegement',
+      this.reservationActive.id,
+    ]);
   }
 }

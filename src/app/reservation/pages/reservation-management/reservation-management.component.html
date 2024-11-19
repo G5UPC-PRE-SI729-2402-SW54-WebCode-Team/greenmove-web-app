@@ -21,7 +21,9 @@
           (closed)="panelOpenState.set(false)"
         >
           <mat-expansion-panel-header>
-            <mat-panel-title> Información del owner </mat-panel-title>
+            <mat-panel-title>
+              {{ "RESERVATION.TITLE_OWNER" | translate }}
+            </mat-panel-title>
           </mat-expansion-panel-header>
           <div
             class=""
@@ -40,13 +42,20 @@
               />
             </div>
             <div class="container-col-start">
-              <span> Nombre: {{ reservationEntrity.owner.fullName }} </span>
-              <span> Celular: {{ reservationEntrity.owner.phone }}</span>
+              <span>
+                {{ "PROFILEOWNER.CARD.NAME_COMPLETE" | translate }}:
+                {{ reservationEntrity.owner.fullName }}
+              </span>
+              <span>
+                {{ "PROFILEOWNER.CARD.PHONE" | translate }}:
+                {{ reservationEntrity.owner.phone }}</span
+              >
             </div>
             <div class="container-col-start">
               <!-- <span> Puntuación: {{ reservationEntrity.owner.rate }} </span> -->
               <span>
-                Ubicación: {{ reservationEntrity.owner.streetAddress }}
+                {{ "PROFILEOWNER.CARD.ADDRESS" | translate }}: :
+                {{ reservationEntrity.owner.streetAddress }}
               </span>
             </div>
           </div>
@@ -56,7 +65,9 @@
           (closed)="panelOpenState.set(false)"
         >
           <mat-expansion-panel-header>
-            <mat-panel-title> Información del vehículo</mat-panel-title>
+            <mat-panel-title>
+              {{ "RESERVATION.TITLE_VEHICLE" | translate }}</mat-panel-title
+            >
           </mat-expansion-panel-header>
 
           <div
@@ -77,22 +88,28 @@
             </div>
             <div class="container-col-start">
               <span> {{ reservationEntrity.vehicle.name }} </span>
-              <span> Velocidad: {{ reservationEntrity.vehicle.speed }} </span>
+              <span>
+                {{ "VEHICLE.CARD.SPEED" | translate }}:
+                {{ reservationEntrity.vehicle.speed }} km/h
+              </span>
             </div>
             <div class="container-col-start">
               <span>
-                Type: {{ convertWord(reservationEntrity.vehicle.type) }}
+                {{ "VEHICLE.CARD.TYPE" | translate }}:
+                {{ convertWord(reservationEntrity.vehicle.type) }}
               </span>
-              <span> Soporta hasta: 20 kg </span>
             </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>
       <div class="container-col-start gap-md" style="align-items: center">
-        <span>
-          Tiempo de alquiler:
-          {{ reservationEntrity.tenant.reservationTime }} horas en total</span
+        <span
+          translate="PROFILEOWNER.TRIPS"
+          [translateParams]="{
+            count: reservationEntrity.tenant.reservationTime
+          }"
         >
+        </span>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
         <div
           style="display: flex; justify-content: center; align-items: center"

@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { IRental } from '../../../reservation/interfaces/Rental';
 import { CommonModule, Location } from '@angular/common';
 import { NavBarComponent } from '../../../public/components/nav-bar/nav-bar.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { VehicleDialogComponent } from '../../components/vehicle-dialog/vehicle-dialog.component';
@@ -56,8 +56,11 @@ export class OwnerProfileManagementComponent implements OnInit {
   vehicleNew: any;
   readonly dialog = inject(MatDialog);
 
-  constructor(private router: Router, private location: Location) {
-    console.log('localstorage', localStorage.getItem('userGreen'));
+  constructor(
+    private router: Router,
+    private location: Location,
+    private translate: TranslateService
+  ) {
     const idEntry = this.authService.getUser().idRole
       ? this.authService.getUser().idRole
       : '7';
@@ -98,7 +101,6 @@ export class OwnerProfileManagementComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.vehicleNew = result;
-      console.log(result);
       const vehicleRequest = {
         ...this.vehicleNew,
         status: VehicleStatus.AVAILABLE,
@@ -130,12 +132,20 @@ export class OwnerProfileManagementComponent implements OnInit {
   addVehicle(): void {}
 
   convertWord(p: string): string {
-    const word: { [key: string]: string } = {
-      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
-      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
-      ELECTRIC_CAR: 'CARRO ELECTRICO',
-    };
+    let translatedWord = '';
+    this.translate.get(`VEHICLE.CARD.${p}`).subscribe((translation) => {
+      translatedWord = translation || '';
+    });
 
-    return word[p] || '';
+    return translatedWord;
+  }
+
+  convertState(p: string) {
+    let translatedWord = '';
+    this.translate.get(`VEHICLE.CARD.${p}`).subscribe((translation) => {
+      translatedWord = translation || '';
+    });
+
+    return translatedWord;
   }
 }

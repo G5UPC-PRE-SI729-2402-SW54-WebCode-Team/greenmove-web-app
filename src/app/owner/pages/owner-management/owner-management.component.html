@@ -6,12 +6,15 @@
     <div class="container-col-center">
       <img src="../../../../assets/imgs/avatar.jpeg" alt="" />
       <div class="container-col-center mt-lg" *ngIf="reservationsbyOwner">
-        <h2>! WOW TUS VEHÍCULOS SON MUY POPULARES !</h2>
-        <h3 class="text-center">
-          Tus vehículos tienen en total {{ reservationsbyOwner.length }} viajes
-        </h3>
+        <h2>{{ "PROFILEOWNER.BANNER" | translate }}</h2>
+        <h3
+          class="text-center"
+          translate="PROFILEOWNER.TRIPS"
+          [translateParams]="{ count: tripsCount }"
+        ></h3>
         <h3>
-          Ganaste aproximadamente {{ reservationsbyOwner.length * 8.23 }} soles
+          {{ "PROFILEOWNER.WIN" | translate }}
+          {{ reservationsbyOwner.length * 8.23 }} soles
         </h3>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
       </div>

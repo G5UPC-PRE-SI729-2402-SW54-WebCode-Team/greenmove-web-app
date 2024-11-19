@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> Celular </span>
+          <span> {{ "PROFILEOWNER.CARD.PHONE" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="container-col-start mb-md">
-          <span> {{ "PROFILE.CARD.UBICATION" | translate }} </span>
+          <span> {{ "PROFILEOWNER.CARD.ADDRESS" | translate }} </span>
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
@@ -61,7 +61,9 @@
         <mat-card appearance="outlined" *ngFor="let vehicle of vehicles">
           <mat-card-header style="margin: auto">
             <mat-card-title> {{ vehicle.name }}</mat-card-title>
-            <mat-card-subtitle>{{ vehicle.status }}</mat-card-subtitle>
+            <mat-card-subtitle>{{
+              convertState(vehicle.status)
+            }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content
             style="
@@ -73,8 +75,14 @@
             "
           >
             <img [src]="vehicle.urlImage" alt="" style="width: 25%" />
-            <p><span> TIPO: </span> {{ convertWord(vehicle.type)   }}</p>
-            <p><span> VELOCIDAD: </span> {{ vehicle.speed }}</p>
+            <p>
+              <span> {{ "VEHICLE.CARD.TYPE" | translate }} : </span>
+              {{ convertWord(vehicle.type) }}
+            </p>
+            <p>
+              <span> {{ "VEHICLE.CARD.SPEED" | translate }} : </span>
+              {{ vehicle.speed }}
+            </p>
           </mat-card-content>
           <mat-card-actions style="margin: auto">
             <button
