@@ -7,17 +7,17 @@
     <div class="ml-md">
       <div class="">
         <span> {{ "VEHICLE.CARD.SPEED" | translate }}</span>
-        <span> : {{vehicle.type }} </span>
+        <span> : {{ vehicle.speed }} </span>
       </div>
       <div>
-        <span> {{ "VEHICLE.CARD.DISTANCE" | translate }}</span>
-        <span> : 1.2km </span>
+        <span> {{ "Tipo" | translate }}</span>
+        <span> : {{ convertWord(vehicle.type) }} </span>
       </div>
     </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-flat-button color="primary" (click)="selectVehicle()">
-      {{ "VEHICLE.CARD.BUTTON" | translate }}
+      RESERVA
     </button>
   </mat-card-actions>
 </mat-card>

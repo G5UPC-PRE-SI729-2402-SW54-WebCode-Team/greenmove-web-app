@@ -2,29 +2,42 @@
   <h1 class="text-center title-text mb-xl">REGÍSTRATE</h1>
   <form class="container-col-center pv-xl" [formGroup]="registerForm">
     <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
+      <mat-label>Usuario</mat-label>
       <input
-        type="email"
+        type="userName"
         matInput
-        formControlName="email"
+        formControlName="userName"
         [errorStateMatcher]="matcher"
-        placeholder="Ingresa tu email"
+        placeholder="Ingresa tu usuario"
       />
-      @if (registerForm.get('email')?.invalid ) {
-      <mat-error>Ingresa el <strong> email </strong> correcto</mat-error>
+      @if (registerForm.get('userName')?.invalid ) {
+      <mat-error>Ingresa el <strong> usuario </strong> correcto</mat-error>
       }
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
       <input
-        type="name"
+        type="firstName"
         matInput
-        formControlName="name"
+        formControlName="firstName"
         [errorStateMatcher]="matcher"
         placeholder="Ingresa tu nombre"
       />
       @if (registerForm.get('name')?.invalid ) {
-      <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
+      <mat-error>Mínimo 4 <strong>carácteres</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Apellido</mat-label>
+      <input
+        type="lastName"
+        matInput
+        formControlName="lastName"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu apellido"
+      />
+      @if (registerForm.get('name')?.invalid ) {
+      <mat-error>Mínimo 2 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
     <mat-form-field appearance="outline">
@@ -40,13 +53,59 @@
       <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
       }
     </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input
+        type="phone"
+        matInput
+        formControlName="phone"
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa tu celular"
+      />
+      @if (registerForm.get('phone')?.invalid ) {
+      <mat-error>Exactamente 9 <strong>carácteres</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      [style.display]="isOwner ? 'block' : 'none'"
+    >
+      <mat-label>Ciudad</mat-label>
+      <input
+        type="city"
+        matInput
+        [errorStateMatcher]="matcher"
+        placeholder="Ingresa la ciudad"
+      />
+      @if (registerForm.get('phone')?.invalid ) {
+      <mat-error>Mínimo 6 <strong>carácteres</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ingresa tu foto</mat-label>
+      <button mat-icon-button matPrefix (click)="f_input.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+      <input type="text" readonly matInput formControlName="urlImage" />
+      <input
+        type="file"
+        hidden
+        accept=".jpg, .jpeg"
+        #f_input
+        (change)="onFileSelected($event)"
+      />
+      <mat-error>this field is required</mat-error>
+    </mat-form-field>
     <mat-slide-toggle
       color="primary"
       class="example-margin"
       [checked]="isOwner"
+      (change)="onToggleChange($event)"
     >
       Quieres alquilar tu vehículo
     </mat-slide-toggle>
+
     <div class="container-center mt-lg mb-lg" (click)="goToLogin()">
       <span> O Iniciar Sesión aquí</span>
     </div>
@@ -55,6 +114,7 @@
         mat-flat-button
         color="primary"
         (click)="sendRegister()"
+        [disabled]="this.registerForm.invalid"
       >
         Regístrarse
       </button>

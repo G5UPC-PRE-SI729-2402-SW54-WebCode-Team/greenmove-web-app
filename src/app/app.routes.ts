@@ -57,13 +57,6 @@ export const routes: Routes = [
           ).then((m) => m.OwnerProfileManagementComponent),
       },
       {
-        path: 'profile',
-        loadComponent: () =>
-          import(
-            './profile/pages/profile-managment/profile-managment.component'
-          ).then((m) => m.ProfileManagmentComponent),
-      },
-      {
         path: 'suscriptions',
         loadComponent: () =>
           import(

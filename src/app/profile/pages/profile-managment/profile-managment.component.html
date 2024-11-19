@@ -1,5 +1,5 @@
 <app-nav-bar [title]="'PROFILE.TITLE' | translate"></app-nav-bar>
-<div class="profile-management-container">
+<div class="profile-management-container" *ngIf="tenantEntrity">
   <div class="grid-repeat-fit gap-xl">
     <div class="container-col-center gap-xl">
       <div class="image-profile-container p-md">
@@ -23,7 +23,7 @@
           <div
             class="container-center-start bg-white radius-md ph-md pv-sm w-available"
           >
-            <span> Plan Avanzado</span>
+            <span> {{ convertWord(this.tenantEntrity.membership.type) }}</span>
           </div>
         </div>
         <div class="container-col-start mb-md">

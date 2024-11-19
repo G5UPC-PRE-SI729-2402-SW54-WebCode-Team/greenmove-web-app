@@ -20,9 +20,17 @@ import { OwnerManagementComponent } from '../../../owner/pages/owner-management/
 export class HomeComponent implements OnInit {
   user = inject(AuthService);
 
+  profile: any;
   constructor() {
-    this.user.getUser();
-    console.log('console', this.user.getUser());
+    this.user.getUserService(this.user.getUser().id).then((response) => {
+      this.profile = response;
+      this.user.setUser({
+        ...this.user.getUser(),
+        role: response.roles[0],
+        idRole: response.owner ? response.owner.id : response.tenant.id,
+      });
+      localStorage.setItem('userGreen', JSON.stringify(this.user.getUser()));
+    });
   }
   ngOnInit(): void {}
 }

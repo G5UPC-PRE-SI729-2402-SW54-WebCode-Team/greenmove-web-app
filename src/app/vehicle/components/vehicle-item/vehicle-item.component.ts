@@ -22,4 +22,13 @@ export class VehicleItemComponent implements OnInit {
   selectVehicle() {
     this.vehicleClicked.emit(this.vehicle);
   }
+  convertWord(p: string): string {
+    const word: { [key: string]: string } = {
+      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
+      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
+      ELECTRIC_CAR: 'CARRO ELECTRICO',
+    };
+
+    return word[p] || '';
+  }
 }

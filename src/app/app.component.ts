@@ -24,8 +24,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'greenmove-web-app';
   constructor(translate: TranslateService, private router: Router) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    translate.setDefaultLang('es');
+    translate.use('es');
   }
   goToPayment = () => {
     this.router.navigate(['/payment']);

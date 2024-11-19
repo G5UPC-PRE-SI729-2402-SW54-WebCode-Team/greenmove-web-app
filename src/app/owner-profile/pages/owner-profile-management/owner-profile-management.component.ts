@@ -57,11 +57,14 @@ export class OwnerProfileManagementComponent implements OnInit {
   readonly dialog = inject(MatDialog);
 
   constructor(private router: Router, private location: Location) {
-    this.ownerService.getById(2).subscribe((response: any) => {
+    console.log('localstorage', localStorage.getItem('userGreen'));
+    const idEntry = this.authService.getUser().idRole
+      ? this.authService.getUser().idRole
+      : '7';
+    this.ownerService.getById(idEntry).subscribe((response: any) => {
       this.ownerEntrity = response;
     });
-    this.ownerService.getVehiclesByOwner(2).then((response: any[]) => {
-      console.log('vehicles', response);
+    this.ownerService.getVehiclesByOwner(idEntry).then((response: any[]) => {
       this.vehicles = response;
     });
   }

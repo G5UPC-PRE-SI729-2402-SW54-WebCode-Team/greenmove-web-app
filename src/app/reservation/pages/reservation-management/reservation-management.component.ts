@@ -9,6 +9,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-reservation-management',
@@ -21,6 +24,8 @@ import { CommonModule } from '@angular/common';
     MatProgressBarModule,
     MapComponent,
     CommonModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './reservation-management.component.html',
   styleUrl: './reservation-management.component.scss',
@@ -47,13 +52,40 @@ export class ReservationManagementComponent implements OnInit {
     lat: -12.099120170974512,
     lng: -77.03824808525513,
   };
-
+  idReservation: any;
   reservationService = inject(ReservationService);
   reservationEntrity: any;
-
-  ngOnInit(): void {
-    this.reservationService.getById(10).subscribe((response: any) => {
-      this.reservationEntrity = response;
+  constructor(private activedRouter: ActivatedRoute, private router: Router) {
+    this.activedRouter.params.subscribe((params) => {
+      this.idReservation = params['id'];
+      console.log(this.idReservation);
     });
+  }
+  ngOnInit(): void {
+    this.reservationService
+      .getById(this.idReservation)
+      .subscribe((response: any) => {
+        this.reservationEntrity = response;
+      });
+  }
+
+  terminateReservation() {
+    this.reservationService
+      .updateReservation(this.idReservation, 'COMPLETED')
+      .then((response) => {
+        if (response) {
+          this.router.navigate(['/']);
+        }
+      });
+  }
+
+  convertWord(p: string): string {
+    const word: { [key: string]: string } = {
+      ELECTRIC_BIKE: 'BICICLETA ELECTRICA',
+      ELECTRIC_SCOOTER: 'SCOOTER ELECTRICO',
+      ELECTRIC_CAR: 'CARRO ELECTRICO',
+    };
+
+    return word[p] || '';
   }
 }

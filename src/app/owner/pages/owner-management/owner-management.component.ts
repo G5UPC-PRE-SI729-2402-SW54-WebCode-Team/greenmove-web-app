@@ -25,8 +25,11 @@ export class OwnerManagementComponent implements OnInit {
     private reservationService: ReservationService
   ) {}
   ngOnInit(): void {
+    const idRole = JSON.parse(
+      localStorage.getItem('userGreen') || 'null'
+    ).idRole;
     this.reservationService
-      .getReservationsByOwner(2)
+      .getReservationsByOwner(idRole)
       .then((response) => (this.reservationsbyOwner = response));
   }
 }

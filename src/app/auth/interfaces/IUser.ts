@@ -1,11 +1,12 @@
 export enum Role {
-  Owner = 'OWNER',
-  User = 'USER',
+  Owner = 'ROLE_OWNER',
+  User = 'ROLE_TENANT',
 }
 
 export interface IUser {
   id: string;
-  jwtToken: string;
-  name: string;
-  role: 'OWNER' | 'USER';
+  token: string;
+  username: string;
+  role: 'ROLE_OWNER' | 'ROLE_TENANT';
+  idRole: any;
 }

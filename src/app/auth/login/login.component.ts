@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.loginForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]],
-      isOwner: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -56,14 +54,16 @@ export class LoginComponent implements OnInit {
   }
   toGoLogin(): void {
     console.log('this login form', this.loginForm.value.isOwner, Role.Owner);
-    this.authService.login({
-      name: this.loginForm.value.name,
-      id: '12412rfarr',
-      jwtToken: '12412532513refqefq352',
-      role: this.loginForm.value.isOwner ? 'OWNER' : 'USER',
-    });
-    // console.log('this user', this.authService.getUser());
-    this.router.navigate(['/']);
+    this.authService
+      .login({
+        username: this.loginForm.value.name,
+        password: this.loginForm.value.password,
+      })
+      .then((response) => {
+        if (response) {
+          this.router.navigate(['/']);
+        }
+      });
   }
   selectUser(event: any): void {
     this.isOwner = event.checked;

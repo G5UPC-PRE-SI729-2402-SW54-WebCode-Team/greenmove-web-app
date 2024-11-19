@@ -37,11 +37,14 @@ export class VehicleManagementComponent implements OnInit {
   }
 
   onVehicleSelected(vehicle: any) {
+    const idRole = JSON.parse(
+      localStorage.getItem('userGreen') || 'null'
+    ).idRole;
     this.reservationService
       .create({
         vehicleId: vehicle.id,
         ownerId: vehicle.owner.id,
-        tenantId: 1,
+        tenantId: idRole,
       })
       .subscribe((response: any) => {
         console.log(response);
